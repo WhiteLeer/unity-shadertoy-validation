@@ -1,0 +1,35 @@
+﻿{
+    "shaderId":  "dlScDt",
+    "name":  "Water Toon Torrent",
+    "author":  "leon",
+    "sourceUrl":  "https://www.shadertoy.com/view/dlScDt",
+    "passCount":  1,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-13\\Shaders\\dlScDt_0_image.glsl"
+                   }
+               ],
+    "inputSummary":  [
+
+                     ],
+    "downloadedAssets":  [
+
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        }
+}
