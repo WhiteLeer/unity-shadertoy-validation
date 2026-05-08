@@ -1,0 +1,173 @@
+﻿{
+    "shaderId":  "4d2yRt",
+    "name":  "SynTech 001",
+    "author":  "KK",
+    "sourceUrl":  "https://www.shadertoy.com/view/4d2yRt",
+    "passCount":  4,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-24\\Shaders\\4d2yRt_0_image.glsl"
+                   },
+                   {
+                       "index":  1,
+                       "type":  "buffer",
+                       "name":  "Buffer A",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-24\\Shaders\\4d2yRt_1_buffer.glsl"
+                   },
+                   {
+                       "index":  2,
+                       "type":  "buffer",
+                       "name":  "Buffer B",
+                       "outputs":  [
+                                       {
+                                           "id":  "XsXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-24\\Shaders\\4d2yRt_2_buffer.glsl"
+                   },
+                   {
+                       "index":  3,
+                       "type":  "buffer",
+                       "name":  "Buffer C",
+                       "outputs":  [
+                                       {
+                                           "id":  "4sXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-24\\Shaders\\4d2yRt_3_buffer.glsl"
+                   }
+               ],
+    "inputSummary":  [
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  1,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer02.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4sXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  2,
+                             "inputType":  "musicstream",
+                             "filepath":  "https://soundcloud.com/ajna-goa/ajna-search-of-the-divine",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "lsXXRr",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  2,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  3,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer01.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         }
+                     ],
+    "downloadedAssets":  [
+                             {
+                                 "filepath":  "/media/previz/buffer00.png",
+                                 "type":  "buffer",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-24\\Textures\\buffer00.png"
+                             },
+                             {
+                                 "filepath":  "/media/previz/buffer02.png",
+                                 "type":  "buffer",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-24\\Textures\\buffer02.png"
+                             },
+                             {
+                                 "filepath":  "/media/previz/buffer01.png",
+                                 "type":  "buffer",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-24\\Textures\\buffer01.png"
+                             }
+                         ],
+    "failedAssets":  [
+                         {
+                             "filepath":  "https://soundcloud.com/ajna-goa/ajna-search-of-the-divine",
+                             "type":  "musicstream",
+                             "error":  "Asset download failed: https://soundcloud.com/ajna-goa/ajna-search-of-the-divine"
+                         }
+                     ],
+    "unityResolution":  {
+                            "width":  1024,
+                            "height":  576,
+                            "basis":  "webglViewport"
+                        }
+}
