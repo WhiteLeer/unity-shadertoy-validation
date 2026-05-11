@@ -1,0 +1,35 @@
+﻿{
+    "shaderId":  "7tlyzl",
+    "name":  "Energy beam",
+    "author":  "fydrenak",
+    "sourceUrl":  "https://www.shadertoy.com/view/7tlyzl",
+    "passCount":  1,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-25\\Shaders\\7tlyzl_0_image.glsl"
+                   }
+               ],
+    "inputSummary":  [
+
+                     ],
+    "downloadedAssets":  [
+
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        }
+}
