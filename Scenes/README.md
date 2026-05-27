@@ -1,1 +1,2 @@
-Reserved for Shadertoy validation scenes.
+﻿Reserved for Shadertoy validation scenes.
+

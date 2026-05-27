@@ -25,3 +25,4 @@
 - `iMouse` 默认置 0（可后续接入鼠标驱动）
 - 必须正确绑定 `_Channel0` (Cubemap) 与 `_Channel1` (Texture2D)
 - 分辨率由 `shadertoy-2-capture.resolution.json` 自动驱动
+

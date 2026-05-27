@@ -19,14 +19,14 @@ public class ShadertoyLstXRlBootstrap : ShadertoyBootstrapBase
         if (channel0Cubemap == null)
         {
             channel0Cubemap = AssetDatabase.LoadAssetAtPath<Cubemap>(
-                "Assets/Shadertoy/shadertoy-2/Textures/793a105653fbdadabdc1325ca08675e1ce48ae5f12e37973829c87bea4be3232.png"
+                "Assets/unity-shadertoy-validation/shadertoy-2/Textures/793a105653fbdadabdc1325ca08675e1ce48ae5f12e37973829c87bea4be3232.png"
             );
         }
 
         if (channel1Texture == null)
         {
             channel1Texture = AssetDatabase.LoadAssetAtPath<Texture2D>(
-                "Assets/Shadertoy/shadertoy-2/Textures/ad56fba948dfba9ae698198c109e71f118a54d209c0ea50d77ea546abad89c57.png"
+                "Assets/unity-shadertoy-validation/shadertoy-2/Textures/ad56fba948dfba9ae698198c109e71f118a54d209c0ea50d77ea546abad89c57.png"
             );
         }
     }
@@ -50,3 +50,4 @@ public class ShadertoyLstXRlBootstrap : ShadertoyBootstrapBase
         }
     }
 }
+

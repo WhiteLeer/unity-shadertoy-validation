@@ -7,3 +7,4 @@ public class ShadertoyNflSD8Bootstrap : ShadertoyBootstrapBase
     protected override string QuadObjectName => "ST_NflSD8_Quad";
     protected override string DefaultResolutionJsonRelativePath => "Shadertoy/shadertoy-0/shadertoy-0-capture.resolution.json";
 }
+

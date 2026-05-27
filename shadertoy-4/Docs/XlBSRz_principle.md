@@ -18,3 +18,4 @@
 ## 4. 输入
 - `iChannel0` 噪声纹理 -> `_Channel0`
 - 分辨率由 `shadertoy-4-capture.resolution.json` 自动驱动
+

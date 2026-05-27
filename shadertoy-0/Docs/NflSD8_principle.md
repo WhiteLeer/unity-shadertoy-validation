@@ -36,3 +36,4 @@
 - `iTime -> _Time.y`
 - 保持 full-screen quad + 正交相机铺满
 - 分辨率由 `shadertoy-0-capture.resolution.json` 驱动，避免构图偏差
+

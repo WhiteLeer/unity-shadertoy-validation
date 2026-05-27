@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -12,7 +12,7 @@ public static class ShadertoySceneFactory
     private static void CreateShadertoy0Scene()
     {
         CreateDefaultAcceptanceScene(
-            "Assets/Shadertoy/shadertoy-0/Scenes/shadertoy-0-acceptance.unity",
+            "Assets/unity-shadertoy-validation/shadertoy-0/Scenes/shadertoy-0-acceptance.unity",
             "ShadertoyNflSD8Bootstrap"
         );
     }
@@ -21,7 +21,7 @@ public static class ShadertoySceneFactory
     private static void CreateShadertoy1Scene()
     {
         CreateDefaultAcceptanceScene(
-            "Assets/Shadertoy/shadertoy-1/Scenes/shadertoy-1-acceptance.unity",
+            "Assets/unity-shadertoy-validation/shadertoy-1/Scenes/shadertoy-1-acceptance.unity",
             "Shadertoy4tc3DXBootstrap"
         );
     }
@@ -76,3 +76,4 @@ public static class ShadertoySceneFactory
         }
     }
 }
+

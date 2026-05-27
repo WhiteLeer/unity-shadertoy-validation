@@ -1,1 +1,2 @@
-Reserved for Shadertoy validation screenshots.
+﻿Reserved for Shadertoy validation screenshots.
+

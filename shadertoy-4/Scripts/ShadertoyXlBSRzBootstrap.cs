@@ -18,7 +18,7 @@ public class ShadertoyXlBSRzBootstrap : ShadertoyBootstrapBase
         if (channel0Texture == null)
         {
             channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>(
-                "Assets/Shadertoy/shadertoy-4/Textures/0a40562379b63dfb89227e6d172f39fdce9022cba76623f1054a2c83d6c0ba5d.png"
+                "Assets/unity-shadertoy-validation/shadertoy-4/Textures/0a40562379b63dfb89227e6d172f39fdce9022cba76623f1054a2c83d6c0ba5d.png"
             );
         }
     }
@@ -44,3 +44,4 @@ public class ShadertoyXlBSRzBootstrap : ShadertoyBootstrapBase
         material.SetVector("_Mouse", new Vector4(mp.x, mp.y, down, down));
     }
 }
+

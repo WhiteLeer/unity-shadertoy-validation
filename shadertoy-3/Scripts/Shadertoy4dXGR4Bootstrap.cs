@@ -25,14 +25,14 @@ public class Shadertoy4dXGR4Bootstrap : ShadertoyBootstrapBase
         if (channel0Texture == null)
         {
             channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>(
-                "Assets/Shadertoy/shadertoy-3/Textures/92d7758c402f0927011ca8d0a7e40251439fba3a1dac26f5b8b62026323501aa.jpg"
+                "Assets/unity-shadertoy-validation/shadertoy-3/Textures/92d7758c402f0927011ca8d0a7e40251439fba3a1dac26f5b8b62026323501aa.jpg"
             );
         }
 
         if (channel1Clip == null)
         {
             channel1Clip = AssetDatabase.LoadAssetAtPath<AudioClip>(
-                "Assets/Shadertoy/shadertoy-3/Audio/3c33c415862bb7964d256f4749408247da6596f2167dca2c86cc38f83c244aa6.mp3"
+                "Assets/unity-shadertoy-validation/shadertoy-3/Audio/3c33c415862bb7964d256f4749408247da6596f2167dca2c86cc38f83c244aa6.mp3"
             );
         }
     }
@@ -148,3 +148,4 @@ public class Shadertoy4dXGR4Bootstrap : ShadertoyBootstrapBase
         audioTexture.Apply(false, false);
     }
 }
+

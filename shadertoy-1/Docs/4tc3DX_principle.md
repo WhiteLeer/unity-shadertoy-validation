@@ -35,3 +35,4 @@
 - `iTime -> _Time.y`
 - 保持 full-screen quad + 正交相机铺满（按相机可视宽高动态缩放 quad）。
 - 分辨率由 `shadertoy-1-capture.resolution.json` 自动驱动，保证构图与 Shadertoy 一致。
+

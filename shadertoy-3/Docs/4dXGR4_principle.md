@@ -25,3 +25,4 @@
 ## 5. 说明
 - Shadertoy 原版 `iChannel1` 来自音乐分析纹理；Unity 版使用 `AudioSource.GetSpectrumData` 实时生成近似输入。
 - 如果不播放音频，会自动退化到时变合成谱，确保效果可运行。
+
