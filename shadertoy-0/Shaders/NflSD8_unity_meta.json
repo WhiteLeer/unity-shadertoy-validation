@@ -1,0 +1,16 @@
+﻿{
+    "shaderId":  "NflSD8",
+    "name":  "Unimagined",
+    "author":  "OldEclipse",
+    "sourceUrl":  "https://www.shadertoy.com/view/NflSD8",
+    "uniforms":  [
+                     "iResolution",
+                     "iTime"
+                 ],
+    "passType":  "image",
+    "inputCount":  0,
+    "notes":  [
+                  "Single pass full-screen effect",
+                  "No external inputs"
+              ]
+}

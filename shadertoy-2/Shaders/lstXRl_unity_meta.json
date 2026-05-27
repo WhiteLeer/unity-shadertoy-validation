@@ -1,0 +1,12 @@
+﻿{
+  "shaderId": "lstXRl",
+  "name": "Ray Marching Experiment 43",
+  "author": "aiekick",
+  "sourceUrl": "https://www.shadertoy.com/view/lstXRl",
+  "uniforms": ["iResolution", "iTime", "iMouse", "iChannel0", "iChannel1"],
+  "notes": [
+    "Single pass full-screen raymarch",
+    "Depends on cubemap channel0 and texture channel1",
+    "Mouse interaction disabled in Unity version by default"
+  ]
+}

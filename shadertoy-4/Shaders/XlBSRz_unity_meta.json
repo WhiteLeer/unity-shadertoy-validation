@@ -1,0 +1,25 @@
+﻿{
+    "shaderId":  "XlBSRz",
+    "name":  "VolumetricIntegration",
+    "author":  "SebH",
+    "sourceUrl":  "https://www.shadertoy.com/view/XlBSRz",
+    "passCount":  1,
+    "inputSummary":  {
+                         "channel":  0,
+                         "type":  "texture",
+                         "filepath":  "/media/a/0a40562379b63dfb89227e6d172f39fdce9022cba76623f1054a2c83d6c0ba5d.png",
+                         "sampler":  {
+                                         "filter":  "mipmap",
+                                         "wrap":  "repeat",
+                                         "vflip":  "false",
+                                         "srgb":  "false",
+                                         "internal":  "byte"
+                                     }
+                     },
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        },
+    "portingNote":  "Unity file is an HLSL adaptation baseline; keep GLSL as source of truth for incremental parity."
+}
