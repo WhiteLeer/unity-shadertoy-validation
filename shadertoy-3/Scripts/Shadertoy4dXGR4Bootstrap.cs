@@ -17,7 +17,7 @@ public class Shadertoy4dXGR4Bootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/4dXGR4_MainSequenceStar";
     protected override string QuadObjectName => "ST_4dXGR4_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "Shadertoy/shadertoy-3/shadertoy-3-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-3/shadertoy-3-capture.resolution.json";
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -148,4 +148,5 @@ public class Shadertoy4dXGR4Bootstrap : ShadertoyBootstrapBase
         audioTexture.Apply(false, false);
     }
 }
+
 

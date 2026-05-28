@@ -11,7 +11,7 @@ public class ShadertoyLstXRlBootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/lstXRl_RayMarchingExperiment43";
     protected override string QuadObjectName => "ST_lstXRl_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "Shadertoy/shadertoy-2/shadertoy-2-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-2/shadertoy-2-capture.resolution.json";
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -50,4 +50,5 @@ public class ShadertoyLstXRlBootstrap : ShadertoyBootstrapBase
         }
     }
 }
+
 

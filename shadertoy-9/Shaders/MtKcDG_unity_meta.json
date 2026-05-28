@@ -1,0 +1,150 @@
+﻿{
+    "shaderId":  "MtKcDG",
+    "name":  "oil paint brush",
+    "author":  "flockaroo",
+    "sourceUrl":  "https://www.shadertoy.com/view/MtKcDG",
+    "passCount":  2,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-9\\Shaders\\MtKcDG_0_image.glsl"
+                   },
+                   {
+                       "index":  1,
+                       "type":  "buffer",
+                       "name":  "Buffer A",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-9\\Shaders\\MtKcDG_1_buffer.glsl"
+                   }
+               ],
+    "inputSummary":  [
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  1,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "Xsf3zn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  1,
+                             "passType":  "buffer",
+                             "channel":  2,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/8de3a3924cb95bd0e95a443fff0326c869f9d4979cd1d5b6e94e2a01f5be53e9.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dfGRn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  1,
+                             "passType":  "buffer",
+                             "channel":  1,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "Xsf3zn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  1,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "video",
+                             "filepath":  "/media/a/35c87bcb8d7af24c54d41122dadb619dd920646a0bd0e477e7bdc6d12876df17.webm",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XdfGRr",
+                             "src":  null,
+                             "ctype":  null
+                         }
+                     ],
+    "downloadedAssets":  [
+                             {
+                                 "filepath":  "/media/a/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png",
+                                 "type":  "texture",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-9\\Textures\\f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png"
+                             },
+                             {
+                                 "filepath":  "/media/previz/buffer00.png",
+                                 "type":  "buffer",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-9\\Textures\\buffer00.png"
+                             },
+                             {
+                                 "filepath":  "/media/a/8de3a3924cb95bd0e95a443fff0326c869f9d4979cd1d5b6e94e2a01f5be53e9.jpg",
+                                 "type":  "texture",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-9\\Textures\\8de3a3924cb95bd0e95a443fff0326c869f9d4979cd1d5b6e94e2a01f5be53e9.jpg"
+                             },
+                             {
+                                 "filepath":  "/media/a/35c87bcb8d7af24c54d41122dadb619dd920646a0bd0e477e7bdc6d12876df17.webm",
+                                 "type":  "video",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-9\\Textures\\35c87bcb8d7af24c54d41122dadb619dd920646a0bd0e477e7bdc6d12876df17.webm"
+                             }
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        }
+}

@@ -10,7 +10,7 @@ public class ShadertoyXlBSRzBootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/XlBSRz_VolumetricIntegration";
     protected override string QuadObjectName => "ST_XlBSRz_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "Shadertoy/shadertoy-4/shadertoy-4-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-4/shadertoy-4-capture.resolution.json";
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -44,4 +44,5 @@ public class ShadertoyXlBSRzBootstrap : ShadertoyBootstrapBase
         material.SetVector("_Mouse", new Vector4(mp.x, mp.y, down, down));
     }
 }
+
 

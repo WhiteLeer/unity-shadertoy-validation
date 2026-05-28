@@ -1,0 +1,55 @@
+﻿{
+    "shaderId":  "wsXBWS",
+    "name":  "Comic Blobs",
+    "author":  "blackle",
+    "sourceUrl":  "https://www.shadertoy.com/view/wsXBWS",
+    "passCount":  1,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-11\\Shaders\\wsXBWS_0_image.glsl"
+                   }
+               ],
+    "inputSummary":  [
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  0,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/85a6d68622b36995ccb98a89bbb119edf167c914660e4450d313de049320005c.png",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "Xdf3zn",
+                             "src":  null,
+                             "ctype":  null
+                         }
+                     ],
+    "downloadedAssets":  [
+                             {
+                                 "filepath":  "/media/a/85a6d68622b36995ccb98a89bbb119edf167c914660e4450d313de049320005c.png",
+                                 "type":  "texture",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-11\\Textures\\85a6d68622b36995ccb98a89bbb119edf167c914660e4450d313de049320005c.png"
+                             }
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        }
+}
