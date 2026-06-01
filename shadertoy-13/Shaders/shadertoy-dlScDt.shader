@@ -21,6 +21,7 @@ Shader "Shadertoy/dlScDt_WaterToonTorrent"
             #pragma vertex Vert
             #pragma fragment Frag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyCompat.hlsl"
 
             struct Attributes { float4 positionOS : POSITION; float2 uv : TEXCOORD0; };
             struct Varyings { float4 positionHCS : SV_POSITION; float2 uv : TEXCOORD0; };
@@ -66,7 +67,7 @@ Shader "Shadertoy/dlScDt_WaterToonTorrent"
 
                 float3 blue = float3(0.459, 0.765, 1.0);
                 float3 tint = lerp(blue * lerp(0.6, 0.8, gradient), float3(1.0, 1.0, 1.0), round(pow(gradient, 4.0) * shades) / shades);
-                float3 color = lerp(tint, blue * 0.2, fmod(floor(shape * count), 2.0));
+                float3 color = lerp(tint, blue * 0.2, ModGLSL(floor(shape * count), 2.0));
                 return float4(color, 1.0);
             }
             ENDHLSL

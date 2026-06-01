@@ -1,4 +1,4 @@
-﻿Shader "Shadertoy/4dXGR4_MainSequenceStar"
+Shader "Shadertoy/4dXGR4_MainSequenceStar"
 {
     Properties
     {
@@ -30,6 +30,7 @@
             #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyCompat.hlsl"
 
             TEXTURE2D(_Channel0);
             SAMPLER(sampler_Channel0);
@@ -64,8 +65,8 @@
                 const float3 s = float3(1e0, 1e2, 1e4);
                 uv *= res;
 
-                float3 uv0 = floor(fmod(uv, res)) * s;
-                float3 uv1 = floor(fmod(uv + float3(1.0, 1.0, 1.0), res)) * s;
+                float3 uv0 = floor(ModGLSL(uv, res)) * s;
+                float3 uv1 = floor(ModGLSL(uv + float3(1.0, 1.0, 1.0), res)) * s;
 
                 float3 f = frac(uv);
                 f = f * f * (3.0 - 2.0 * f);
@@ -114,7 +115,7 @@
                 float fVal1 = 1.0 - fade;
                 float fVal2 = 1.0 - fade;
 
-                float angle = atan2(p.x, p.y) / 6.2832;
+                float angle = AtanGLSL(p.x, p.y) / 6.2832;
                 float dist = length(p);
                 float3 coord = float3(angle, dist, time * 0.1);
 

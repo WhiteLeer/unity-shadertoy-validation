@@ -23,6 +23,7 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
             #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyCompat.hlsl"
             CBUFFER_START(UnityPerMaterial)
                 float _Unused;
             CBUFFER_END
@@ -108,7 +109,7 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
             float2 repeatPolar(float2 pos, float t)
             {
                 float div = 2.0 * ST_PI / t;
-                float a = fmod(atan2(pos.y, pos.x) + div * 1000.0, div) - 0.5 * div;
+                float a = ModGLSL(AtanGLSL(pos.x, pos.y) + div * 1000.0, div) - 0.5 * div;
                 float r = length(pos);
                 return r * float2(cos(a), sin(a));
             }
@@ -158,24 +159,24 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
                 float radin = 0.03;
                 float distPlant = length(float2(length(p.xz) - radin, p.y)) - radout;
 
-                float angleh = atan2(p.z, p.x);
+                float angleh = AtanGLSL(p.x, p.z);
                 float rh = length(p.xz);
                 float t = 14.0;
                 float div = 2.0 * ST_PI / t;
                 float qh = floor(angleh / div);
                 angleh += 0.15 * p.y / radout;
-                angleh = fmod(angleh + div * 1000.0, div) - 0.5 * div;
+                angleh = ModGLSL(angleh + div * 1000.0, div) - 0.5 * div;
 
                 p.x = rh * cos(angleh);
                 p.z = rh * sin(angleh);
                 distPlant -= 0.01 * (0.5 + 0.5 * cos(t * angleh));
 
                 float3 pr = p - float3(radin, 0.0, 0.0);
-                float anglev2 = atan2(pr.y, pr.x);
+                float anglev2 = AtanGLSL(pr.x, pr.y);
                 float att = abs(anglev2);
                 float rv = length(pr.xy);
                 float qv = floor(anglev2 / (0.5 * div));
-                anglev2 = fmod(anglev2 + div * 1000.0, 0.5 * div) - 0.25 * div;
+                anglev2 = ModGLSL(anglev2 + div * 1000.0, 0.5 * div) - 0.25 * div;
                 p.x = rv * cos(anglev2);
                 p.y = rv * sin(anglev2);
 

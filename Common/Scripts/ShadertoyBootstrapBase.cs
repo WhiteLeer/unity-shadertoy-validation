@@ -24,9 +24,11 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
     private bool resolutionApplied;
     private Camera runtimeCamera;
     private Transform runtimeQuadTransform;
+    private int frameIndex;
 
     private void OnEnable()
     {
+        frameIndex = 0;
         TryLoadResolutionFromCaptureReport();
         ApplyTargetResolution();
         EnsureSceneSetup();
@@ -36,14 +38,17 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
     {
         if (!Application.isPlaying || resolutionApplied)
         {
+            PushCommonUniforms(runtimeMaterial);
             FitQuadToCamera();
             TickCustom(runtimeMaterial);
             return;
         }
 
         ApplyTargetResolution();
+        PushCommonUniforms(runtimeMaterial);
         FitQuadToCamera();
         TickCustom(runtimeMaterial);
+        frameIndex++;
     }
 
     private void OnDisable()
@@ -202,6 +207,29 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
 
     protected virtual void ConfigureMaterial(Material material)
     {
+    }
+
+    /// <summary>
+    /// Pushes a stable set of Shadertoy-style uniforms so per-shader bootstraps do not need
+    /// to re-implement this boilerplate and accidentally diverge (axis/time/mouse bugs).
+    /// </summary>
+    private void PushCommonUniforms(Material material)
+    {
+        if (material == null)
+        {
+            return;
+        }
+
+        var w = Mathf.Max(1, targetWidth);
+        var h = Mathf.Max(1, targetHeight);
+        material.SetVector("_STResolution", new Vector4(w, h, 1f / w, 1f / h));
+        material.SetFloat("_STTime", Time.time);
+        material.SetFloat("_STDeltaTime", Time.deltaTime);
+        material.SetFloat("_STFrame", frameIndex);
+
+        var mousePos = Input.mousePosition;
+        var mouseDown = Input.GetMouseButton(0) ? 1f : 0f;
+        material.SetVector("_STMouse", new Vector4(mousePos.x, mousePos.y, mouseDown, mouseDown));
     }
 
     protected virtual void TickCustom(Material material)
