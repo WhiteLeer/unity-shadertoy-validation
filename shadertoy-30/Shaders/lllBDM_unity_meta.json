@@ -1,0 +1,104 @@
+﻿{
+    "shaderId":  "lllBDM",
+    "name":  "Goo",
+    "author":  "noby",
+    "sourceUrl":  "https://www.shadertoy.com/view/lllBDM",
+    "passCount":  3,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-30\\Shaders\\lllBDM_0_image.glsl"
+                   },
+                   {
+                       "index":  1,
+                       "type":  "buffer",
+                       "name":  "Buf A",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-30\\Shaders\\lllBDM_1_buffer.glsl"
+                   },
+                   {
+                       "index":  2,
+                       "type":  "buffer",
+                       "name":  "Buf B",
+                       "outputs":  [
+                                       {
+                                           "id":  "XsXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-30\\Shaders\\lllBDM_2_buffer.glsl"
+                   }
+               ],
+    "inputSummary":  [
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer01.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  2,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         }
+                     ],
+    "downloadedAssets":  [
+
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "skippedPlaceholders":  [
+                                {
+                                    "filepath":  "/media/previz/buffer01.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer00.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                }
+                            ],
+    "unityResolution":  {
+                            "width":  840,
+                            "height":  473,
+                            "basis":  "webglViewport"
+                        }
+}

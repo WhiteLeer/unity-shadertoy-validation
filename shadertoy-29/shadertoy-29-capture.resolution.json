@@ -1,0 +1,23 @@
+{
+  "sourceUrl": "https://www.shadertoy.com/view/3lyXRt",
+  "unityResolution": {
+    "width": 420,
+    "height": 236,
+    "basis": "webglViewport"
+  },
+  "resolutionMetrics": {
+    "devicePixelRatio": 2,
+    "innerWidth": 1272,
+    "innerHeight": 682,
+    "canvasClientWidth": 420,
+    "canvasClientHeight": 236,
+    "canvasWidth": 420,
+    "canvasHeight": 236,
+    "glViewport": {
+      "x": 0,
+      "y": 0,
+      "w": 420,
+      "h": 236
+    }
+  }
+}

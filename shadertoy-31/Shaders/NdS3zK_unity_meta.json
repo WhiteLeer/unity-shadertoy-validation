@@ -1,0 +1,200 @@
+﻿{
+    "shaderId":  "NdS3zK",
+    "name":  "OCEAN ELEMENTAL",
+    "author":  "alro",
+    "sourceUrl":  "https://www.shadertoy.com/view/NdS3zK",
+    "passCount":  4,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-31\\Shaders\\NdS3zK_0_image.glsl"
+                   },
+                   {
+                       "index":  1,
+                       "type":  "buffer",
+                       "name":  "Buffer A",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-31\\Shaders\\NdS3zK_1_buffer.glsl"
+                   },
+                   {
+                       "index":  2,
+                       "type":  "buffer",
+                       "name":  "Buffer B",
+                       "outputs":  [
+                                       {
+                                           "id":  "XsXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-31\\Shaders\\NdS3zK_2_buffer.glsl"
+                   },
+                   {
+                       "index":  3,
+                       "type":  "common",
+                       "name":  "Common",
+                       "outputs":  [
+
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-31\\Shaders\\NdS3zK_3_common.glsl"
+                   }
+               ],
+    "inputSummary":  [
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  2,
+                             "inputType":  "cubemap",
+                             "filepath":  "/media/a/585f9546c092f53ded45332b343144396c0b2d70d9965f585ebc172080d8aa58.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "clamp",
+                                             "vflip":  "false",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsfGzn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  1,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer01.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  1,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  2,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  2,
+                             "passType":  "buffer",
+                             "channel":  1,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer01.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         }
+                     ],
+    "downloadedAssets":  [
+                             {
+                                 "filepath":  "/media/a/585f9546c092f53ded45332b343144396c0b2d70d9965f585ebc172080d8aa58.jpg",
+                                 "type":  "cubemap",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-31\\Textures\\585f9546c092f53ded45332b343144396c0b2d70d9965f585ebc172080d8aa58.jpg"
+                             }
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "skippedPlaceholders":  [
+                                {
+                                    "filepath":  "/media/previz/buffer00.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer01.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer00.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer00.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer01.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                }
+                            ],
+    "unityResolution":  {
+                            "width":  420,
+                            "height":  236,
+                            "basis":  "webglViewport"
+                        }
+}

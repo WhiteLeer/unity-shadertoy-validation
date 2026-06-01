@@ -1,0 +1,23 @@
+{
+  "sourceUrl": "https://www.shadertoy.com/view/WdXXR8",
+  "unityResolution": {
+    "width": 512,
+    "height": 288,
+    "basis": "webglViewport"
+  },
+  "resolutionMetrics": {
+    "devicePixelRatio": 2,
+    "innerWidth": 1280,
+    "innerHeight": 673,
+    "canvasClientWidth": 512,
+    "canvasClientHeight": 288,
+    "canvasWidth": 512,
+    "canvasHeight": 288,
+    "glViewport": {
+      "x": 0,
+      "y": 0,
+      "w": 512,
+      "h": 288
+    }
+  }
+}
