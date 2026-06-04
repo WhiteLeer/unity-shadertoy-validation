@@ -2,11 +2,16 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
+#if UNITY_RENDER_PIPELINE_UNIVERSAL || UNITY_2021_3_OR_NEWER
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+#endif
 #if UNITY_EDITOR
 using System.Reflection;
 using UnityEditor;
 #endif
 
+[ExecuteAlways]
 public abstract class ShadertoyBootstrapBase : MonoBehaviour
 {
     protected abstract string TargetShaderName { get; }
@@ -25,13 +30,24 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
     private Camera runtimeCamera;
     private Transform runtimeQuadTransform;
     private int frameIndex;
+    private bool rendererFeaturesSuppressed;
+
+#if UNITY_EDITOR
+    private static readonly string[] InterferingRendererFeatureNames = { "SSRRenderFeature" };
+    private static readonly System.Collections.Generic.Dictionary<ScriptableRendererFeature, bool> PreviousRendererFeatureStates =
+        new System.Collections.Generic.Dictionary<ScriptableRendererFeature, bool>();
+#endif
 
     private void OnEnable()
     {
         frameIndex = 0;
         TryLoadResolutionFromCaptureReport();
         ApplyTargetResolution();
+        SuppressInterferingRendererFeatures();
         EnsureSceneSetup();
+        PushCommonUniforms(runtimeMaterial);
+        FitQuadToCamera();
+        TickCustom(runtimeMaterial);
     }
 
     private void Update()
@@ -53,11 +69,119 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
 
     private void OnDisable()
     {
+        RestoreSuppressedRendererFeatures();
+
         if (runtimeMaterial != null)
         {
-            Destroy(runtimeMaterial);
+            if (Application.isPlaying)
+            {
+                Destroy(runtimeMaterial);
+            }
+            else
+            {
+                DestroyImmediate(runtimeMaterial);
+            }
             runtimeMaterial = null;
         }
+    }
+
+    private void SuppressInterferingRendererFeatures()
+    {
+#if UNITY_EDITOR && (UNITY_RENDER_PIPELINE_UNIVERSAL || UNITY_2021_3_OR_NEWER)
+        if (rendererFeaturesSuppressed)
+        {
+            return;
+        }
+
+        var pipelineAsset = QualitySettings.renderPipeline as UniversalRenderPipelineAsset;
+        if (pipelineAsset == null)
+        {
+            pipelineAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
+        }
+
+        if (pipelineAsset == null)
+        {
+            return;
+        }
+
+        var serializedPipeline = new SerializedObject(pipelineAsset);
+        var rendererList = serializedPipeline.FindProperty("m_RendererDataList");
+        if (rendererList == null || !rendererList.isArray)
+        {
+            return;
+        }
+
+        for (int i = 0; i < rendererList.arraySize; i++)
+        {
+            var rendererData = rendererList.GetArrayElementAtIndex(i).objectReferenceValue as ScriptableRendererData;
+            if (rendererData == null)
+            {
+                continue;
+            }
+
+            bool rendererDirty = false;
+            foreach (var feature in rendererData.rendererFeatures)
+            {
+                if (feature == null)
+                {
+                    continue;
+                }
+
+                bool shouldSuppress = Array.Exists(
+                    InterferingRendererFeatureNames,
+                    featureName => string.Equals(feature.name, featureName, StringComparison.Ordinal)
+                );
+                if (!shouldSuppress)
+                {
+                    continue;
+                }
+
+                if (!PreviousRendererFeatureStates.ContainsKey(feature))
+                {
+                    PreviousRendererFeatureStates[feature] = feature.isActive;
+                }
+
+                if (feature.isActive)
+                {
+                    feature.SetActive(false);
+                    EditorUtility.SetDirty(feature);
+                    rendererDirty = true;
+                }
+            }
+
+            if (rendererDirty)
+            {
+                rendererData.SetDirty();
+                EditorUtility.SetDirty(rendererData);
+            }
+        }
+
+        rendererFeaturesSuppressed = true;
+#endif
+    }
+
+    private void RestoreSuppressedRendererFeatures()
+    {
+#if UNITY_EDITOR && (UNITY_RENDER_PIPELINE_UNIVERSAL || UNITY_2021_3_OR_NEWER)
+        if (!rendererFeaturesSuppressed)
+        {
+            return;
+        }
+
+        foreach (var kvp in PreviousRendererFeatureStates)
+        {
+            if (kvp.Key == null)
+            {
+                continue;
+            }
+
+            kvp.Key.SetActive(kvp.Value);
+            EditorUtility.SetDirty(kvp.Key);
+        }
+
+        PreviousRendererFeatureStates.Clear();
+        rendererFeaturesSuppressed = false;
+#endif
     }
 
     private void TryLoadResolutionFromCaptureReport()
@@ -169,12 +293,25 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
             return;
         }
 
-        if (runtimeMaterial == null || runtimeMaterial.shader != shader)
+        var shouldRecreateMaterial = runtimeMaterial == null || runtimeMaterial.shader != shader || !Application.isPlaying;
+        if (shouldRecreateMaterial)
         {
+            if (runtimeMaterial != null)
+            {
+                if (Application.isPlaying)
+                {
+                    Destroy(runtimeMaterial);
+                }
+                else
+                {
+                    DestroyImmediate(runtimeMaterial);
+                }
+            }
             runtimeMaterial = new Material(shader);
             runtimeMaterial.name = $"M_{QuadObjectName}_Runtime";
         }
         ConfigureMaterial(runtimeMaterial);
+        PushCommonUniforms(runtimeMaterial);
 
         var quad = GameObject.Find(QuadObjectName);
         if (quad == null)
@@ -187,7 +324,14 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
             var colliderComponent = quad.GetComponent<Collider>();
             if (colliderComponent != null)
             {
-                Destroy(colliderComponent);
+                if (Application.isPlaying)
+                {
+                    Destroy(colliderComponent);
+                }
+                else
+                {
+                    DestroyImmediate(colliderComponent);
+                }
             }
         }
         runtimeQuadTransform = quad.transform;
