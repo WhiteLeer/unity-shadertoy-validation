@@ -1,0 +1,35 @@
+﻿{
+    "shaderId":  "Xs2GDd",
+    "name":  "[SH2014] Cellular",
+    "author":  "vug",
+    "sourceUrl":  "https://www.shadertoy.com/view/Xs2GDd",
+    "passCount":  1,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "",
+                       "outputs":  [
+
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-38\\Shaders\\Xs2GDd_0_image.glsl"
+                   }
+               ],
+    "inputSummary":  [
+
+                     ],
+    "downloadedAssets":  [
+
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "skippedPlaceholders":  [
+
+                            ],
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        }
+}

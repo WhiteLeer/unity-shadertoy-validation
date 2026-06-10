@@ -313,6 +313,8 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
         ConfigureMaterial(runtimeMaterial);
         PushCommonUniforms(runtimeMaterial);
 
+        CleanupStaleShadertoyQuads();
+
         var quad = GameObject.Find(QuadObjectName);
         if (quad == null)
         {
@@ -378,6 +380,44 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
 
     protected virtual void TickCustom(Material material)
     {
+    }
+
+    private void CleanupStaleShadertoyQuads()
+    {
+        var allTransforms = FindObjectsOfType<Transform>(true);
+        foreach (var t in allTransforms)
+        {
+            if (t == null)
+            {
+                continue;
+            }
+
+            var go = t.gameObject;
+            if (go == null)
+            {
+                continue;
+            }
+
+            var name = go.name;
+            if (!name.StartsWith("ST_", StringComparison.Ordinal) || !name.EndsWith("_Quad", StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            if (string.Equals(name, QuadObjectName, StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            if (Application.isPlaying)
+            {
+                Destroy(go);
+            }
+            else
+            {
+                DestroyImmediate(go);
+            }
+        }
     }
 
     private void FitQuadToCamera()
@@ -495,5 +535,6 @@ internal static class ShadertoyGameViewResolutionUtil
     }
 }
 #endif
+
 
 
