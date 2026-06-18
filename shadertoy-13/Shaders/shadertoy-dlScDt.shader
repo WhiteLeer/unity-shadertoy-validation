@@ -1,4 +1,4 @@
-Shader "Shadertoy/dlScDt_WaterToonTorrent"
+﻿Shader "Shadertoy/dlScDt_WaterToonTorrent"
 {
     Properties
     {
@@ -21,6 +21,8 @@ Shader "Shadertoy/dlScDt_WaterToonTorrent"
             #pragma vertex Vert
             #pragma fragment Frag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
+            float _STTime;
             #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyCompat.hlsl"
 
             struct Attributes { float4 positionOS : POSITION; float2 uv : TEXCOORD0; };
@@ -46,7 +48,7 @@ Shader "Shadertoy/dlScDt_WaterToonTorrent"
                 [loop]
                 for (int it = 0; it < 6; ++it)
                 {
-                    seed.x += _Time.y * 0.01 / a;
+                    seed.x += _STTime * 0.01 / a;
                     seed.z += result * 0.5;
                     result += gyroid(seed / a) * a;
                     a *= 0.5;
@@ -56,13 +58,13 @@ Shader "Shadertoy/dlScDt_WaterToonTorrent"
 
             float4 Frag(Varyings i) : SV_Target
             {
-                float2 R = _ScreenParams.xy;
+                float2 R = _STResolution.xy;
                 float2 fragCoord = i.uv * R;
                 float2 p = (2.0 * fragCoord - R) / R.y;
 
                 float count = 2.0;
                 float shades = 3.0;
-                float shape = abs(fbm(float3(p * 0.5, 0.0))) - _Time.y * 0.1 - p.x * 0.1;
+                float shape = abs(fbm(float3(p * 0.5, 0.0))) - _STTime * 0.1 - p.x * 0.1;
                 float gradient = frac(shape * count + p.x);
 
                 float3 blue = float3(0.459, 0.765, 1.0);
@@ -74,3 +76,6 @@ Shader "Shadertoy/dlScDt_WaterToonTorrent"
         }
     }
 }
+
+
+

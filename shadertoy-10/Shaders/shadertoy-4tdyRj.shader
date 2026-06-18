@@ -1,4 +1,4 @@
-Shader "Shadertoy/4tdyRj_ProceduralPlant"
+﻿Shader "Shadertoy/4tdyRj_ProceduralPlant"
 {
     Properties
     {
@@ -23,6 +23,8 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
             #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
+            float _STTime;
             #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyCompat.hlsl"
             CBUFFER_START(UnityPerMaterial)
                 float _Unused;
@@ -116,8 +118,8 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
 
             float distScene(float3 pos, out int objectId, out float colorVariation)
             {
-                pos.yz = mul(rot(0.5 + 0.25 * (0.5 + 0.5 * sin(0.25 * _Time.y - 0.5 * ST_PI))), pos.yz);
-                pos.xz = mul(rot(0.25 * _Time.y), pos.xz);
+                pos.yz = mul(rot(0.5 + 0.25 * (0.5 + 0.5 * sin(0.25 * _STTime - 0.5 * ST_PI))), pos.yz);
+                pos.xz = mul(rot(0.25 * _STTime), pos.xz);
                 pos.y += 0.22;
 
                 float f = noise3(100.0 * pos);
@@ -149,7 +151,7 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
                     colorVariation = 0.0;
                 }
 
-                pos.y *= 1.0 + 0.0075 * sin(5.0 * _Time.y);
+                pos.y *= 1.0 + 0.0075 * sin(5.0 * _STTime);
                 f = noise3(100.0 * pos);
                 sf = smoothstep(0.4, 0.5, f);
 
@@ -189,8 +191,8 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
                 pSpike = abs(pSpike);
                 float spikeRad = 0.0;
                 float distSpike = length(pSpike.yz) - spikeRad;
-                pSpike.xz = mul(rot(0.4 + 0.075 * sin(5.0 * _Time.y)), pSpike.xz);
-                pSpike.xy = mul(rot(0.4 + 0.075 * sin(5.0 * _Time.y)), pSpike.xy);
+                pSpike.xz = mul(rot(0.4 + 0.075 * sin(5.0 * _STTime)), pSpike.xz);
+                pSpike.xy = mul(rot(0.4 + 0.075 * sin(5.0 * _STTime)), pSpike.xy);
                 distSpike = min(distSpike, length(pSpike.yz) - spikeRad);
                 distSpike = 1.75 * smoothmaxf(distSpike, length(pSpike) - 0.0375 + 0.01 * att * att, 0.025);
                 distPlant = min(distPlant, distSpike);
@@ -211,7 +213,7 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
                 float radius = 0.075;
                 float np = 7.0;
                 pLayer.xz = repeatPolar(pLayer.xz, np);
-                pLayer.xy = mul(rot(0.99 - 0.01 * sin(5.0 * _Time.y)), pLayer.xy);
+                pLayer.xy = mul(rot(0.99 - 0.01 * sin(5.0 * _STTime)), pLayer.xy);
                 pLayer.y = abs(pLayer.y);
                 pLayer.z = smoothabsf(pLayer.z, 0.01);
                 float distFlower = length(pLayer - float3(0.4 * radius, -0.68 * radius, -0.67 * radius)) - radius;
@@ -219,7 +221,7 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
                 pLayer = p;
                 pLayer.xz = mul(rot(ST_PI / np), pLayer.xz);
                 pLayer.xz = repeatPolar(pLayer.xz, np);
-                pLayer.xy = mul(rot(0.7 - 0.01 * sin(5.0 * _Time.y)), pLayer.xy);
+                pLayer.xy = mul(rot(0.7 - 0.01 * sin(5.0 * _STTime)), pLayer.xy);
                 pLayer.y = abs(pLayer.y);
                 pLayer.z = smoothabsf(pLayer.z, 0.01);
                 radius = 0.09;
@@ -311,8 +313,8 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
 
             float4 Frag(Varyings i) : SV_Target
             {
-                float2 fragCoord = i.uv * _ScreenParams.xy;
-                float2 uv = (fragCoord - 0.5 * _ScreenParams.xy) / _ScreenParams.x;
+                float2 fragCoord = i.uv * _STResolution.xy;
+                float2 uv = (fragCoord - 0.5 * _STResolution.xy) / _STResolution.x;
                 uv *= 0.8;
                 float3 col = render(uv);
                 return float4(saturate(col), 1.0);
@@ -321,4 +323,7 @@ Shader "Shadertoy/4tdyRj_ProceduralPlant"
         }
     }
 }
+
+
+
 

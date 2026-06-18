@@ -13,6 +13,11 @@ public class ShadertoyXlBSRzBootstrap : ShadertoyBootstrapBase
     protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-4/shadertoy-4-capture.resolution.json";
 
 #if UNITY_EDITOR
+    private void OnEnable()
+    {
+        OnValidate();
+    }
+
     private void OnValidate()
     {
         if (channel0Texture == null)

@@ -22,14 +22,16 @@
             #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
+            float _STTime;
 
             struct Attributes { float4 positionOS : POSITION; float2 uv : TEXCOORD0; };
             struct Varyings { float4 positionHCS : SV_POSITION; float2 uv : TEXCOORD0; float4 screenPos : TEXCOORD1; };
 
             float4 _Mouse;
 
-            #define iTime _Time.y
-            #define iResolution _ScreenParams
+            #define iTime _STTime
+            #define iResolution _STResolution
 
             float2x2 mm2(float a)
             {
@@ -195,3 +197,6 @@
         }
     }
 }
+
+
+

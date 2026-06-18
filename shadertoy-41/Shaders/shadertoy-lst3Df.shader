@@ -10,16 +10,18 @@ Shader "Shadertoy/lst3Df_BokehBlurOctagon4Pass"
 
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Geometry" }
+        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" "Queue"="Geometry" }
         Cull Off ZWrite Off ZTest Always
 
         Pass
         {
             Name "ForwardUnlit"
+            Tags { "LightMode"="SRPDefaultUnlit" }
             HLSLPROGRAM
+            #pragma target 4.0
             #pragma vertex Vert
             #pragma fragment Frag
-            #include "UnityCG.cginc"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             sampler2D _BufferA;
             sampler2D _BufferB;
@@ -42,7 +44,7 @@ Shader "Shadertoy/lst3Df_BokehBlurOctagon4Pass"
             Varyings Vert(Attributes input)
             {
                 Varyings output;
-                output.positionCS = UnityObjectToClipPos(input.vertex);
+                output.positionCS = TransformObjectToHClip(input.vertex.xyz);
                 output.uv = input.uv;
                 return output;
             }

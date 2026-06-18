@@ -27,6 +27,11 @@ public class Shadertoyw3KyW1_v22Bootstrap : ShadertoyBootstrapBase
     protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-22/shadertoy-22-capture.resolution.json";
 
 #if UNITY_EDITOR
+    private void OnEnable()
+    {
+        OnValidate();
+    }
+
     private void OnValidate()
     {
         if (channel0Texture == null)

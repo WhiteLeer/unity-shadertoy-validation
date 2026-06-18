@@ -1,4 +1,4 @@
-Shader "Shadertoy/McjBzK_PixelScan"
+﻿Shader "Shadertoy/McjBzK_PixelScan"
 {
     Properties { _Channel0("Channel0", 2D) = "white" {} }
     SubShader
@@ -147,3 +147,4 @@ Shader "Shadertoy/McjBzK_PixelScan"
         }
     }
 }
+

@@ -1,4 +1,4 @@
-Shader "Shadertoy/dtBGRd_KuwaharaMinimal"
+﻿Shader "Shadertoy/dtBGRd_KuwaharaMinimal"
 {
     Properties
     {
@@ -111,3 +111,4 @@ Shader "Shadertoy/dtBGRd_KuwaharaMinimal"
         }
     }
 }
+

@@ -31,6 +31,7 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
     private Transform runtimeQuadTransform;
     private int frameIndex;
     private bool rendererFeaturesSuppressed;
+    private float lastEditorTime;
 
 #if UNITY_EDITOR
     private static readonly string[] InterferingRendererFeatureNames = { "SSRRenderFeature" };
@@ -41,6 +42,7 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
     private void OnEnable()
     {
         frameIndex = 0;
+        lastEditorTime = GetRuntimeTime();
         TryLoadResolutionFromCaptureReport();
         ApplyTargetResolution();
         SuppressInterferingRendererFeatures();
@@ -57,6 +59,7 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
             PushCommonUniforms(runtimeMaterial);
             FitQuadToCamera();
             TickCustom(runtimeMaterial);
+            frameIndex++;
             return;
         }
 
@@ -339,6 +342,12 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
         runtimeQuadTransform = quad.transform;
 
         var renderer = quad.GetComponent<MeshRenderer>();
+        MeshFilter meshFilter = null;
+        if (quad != null)
+        {
+            meshFilter = quad.GetComponent<MeshFilter>();
+        }
+
         if (renderer != null)
         {
             renderer.sharedMaterial = runtimeMaterial;
@@ -349,6 +358,14 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
         }
 
         FitQuadToCamera();
+        Debug.Log(
+            $"[ShadertoyDiag] scene={gameObject.scene.name} camAspect={runtimeCamera.aspect} camOrtho={runtimeCamera.orthographic} " +
+            $"quad={runtimeQuadTransform.name} pos={runtimeQuadTransform.position} scale={runtimeQuadTransform.localScale} " +
+            $"mesh={(meshFilter != null && meshFilter.sharedMesh != null ? meshFilter.sharedMesh.name : "<null>")} " +
+            $"rendererEnabled={(renderer != null && renderer.enabled)} " +
+            $"material={(renderer != null && renderer.sharedMaterial != null ? renderer.sharedMaterial.name : "<null>")} " +
+            $"shader={(runtimeMaterial != null && runtimeMaterial.shader != null ? runtimeMaterial.shader.name : "<null>")}"
+        );
     }
 
     protected virtual void ConfigureMaterial(Material material)
@@ -368,14 +385,45 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
 
         var w = Mathf.Max(1, targetWidth);
         var h = Mathf.Max(1, targetHeight);
-        material.SetVector("_STResolution", new Vector4(w, h, 1f / w, 1f / h));
-        material.SetFloat("_STTime", Time.time);
-        material.SetFloat("_STDeltaTime", Time.deltaTime);
-        material.SetFloat("_STFrame", frameIndex);
-
+        var timeValue = GetRuntimeTime();
+        var deltaTimeValue = GetRuntimeDeltaTime(timeValue);
         var mousePos = Input.mousePosition;
         var mouseDown = Input.GetMouseButton(0) ? 1f : 0f;
-        material.SetVector("_STMouse", new Vector4(mousePos.x, mousePos.y, mouseDown, mouseDown));
+        var mouseVector = new Vector4(mousePos.x, mousePos.y, mouseDown, mouseDown);
+        material.SetVector("_STResolution", new Vector4(w, h, 1f / w, 1f / h));
+        material.SetFloat("_STTime", timeValue);
+        material.SetFloat("_STDeltaTime", deltaTimeValue);
+        material.SetFloat("_STFrame", frameIndex);
+        material.SetVector("_STMouse", mouseVector);
+        material.SetVector("_Mouse", mouseVector);
+
+        // Compatibility bridge for older shadertoy ports that still read Unity built-ins.
+        Shader.SetGlobalVector("_Time", new Vector4(timeValue * 0.05f, timeValue, timeValue * 2f, timeValue * 3f));
+        Shader.SetGlobalVector("_Mouse", mouseVector);
+    }
+
+    private float GetRuntimeTime()
+    {
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
+        {
+            return (float)EditorApplication.timeSinceStartup;
+        }
+#endif
+        return Time.time;
+    }
+
+    private float GetRuntimeDeltaTime(float currentTime)
+    {
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
+        {
+            var delta = Mathf.Max(0f, currentTime - lastEditorTime);
+            lastEditorTime = currentTime;
+            return delta;
+        }
+#endif
+        return Time.deltaTime;
     }
 
     protected virtual void TickCustom(Material material)
@@ -430,7 +478,24 @@ public abstract class ShadertoyBootstrapBase : MonoBehaviour
         if (runtimeCamera.orthographic)
         {
             var h = runtimeCamera.orthographicSize * 2f;
-            var w = h * runtimeCamera.aspect;
+            var aspect = runtimeCamera.aspect;
+            if (aspect <= 0.0001f)
+            {
+                if (targetWidth > 0 && targetHeight > 0)
+                {
+                    aspect = (float)targetWidth / targetHeight;
+                }
+                else if (Screen.height > 0)
+                {
+                    aspect = (float)Screen.width / Screen.height;
+                }
+                else
+                {
+                    aspect = 16f / 9f;
+                }
+            }
+
+            var w = h * aspect;
             runtimeQuadTransform.position = new Vector3(0f, 0f, 0f);
             runtimeQuadTransform.rotation = Quaternion.identity;
             runtimeQuadTransform.localScale = new Vector3(w, h, 1f);

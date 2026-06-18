@@ -17,7 +17,7 @@
         Pass
         {
             Name "ForwardUnlit"
-            Tags { "LightMode" = "UniversalForward" }
+            Tags { "LightMode" = "SRPDefaultUnlit" }
 
             Cull Off
             ZWrite Off
@@ -29,6 +29,8 @@
             #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
+            float _STTime;
 
             struct Attributes
             {
@@ -83,16 +85,13 @@
 
             float4 Frag(Varyings input) : SV_Target
             {
-                iResolution = float3(_ScreenParams.xy, 1.0);
-                iTime = _Time.y;
-
-                float4 col;
-                mainImage(col, input.uv * iResolution.xy);
-                col.a = 1.0;
-                return col;
+                return float4(1.0, 0.0, 0.0, 1.0);
             }
 
             ENDHLSL
         }
     }
 }
+
+
+

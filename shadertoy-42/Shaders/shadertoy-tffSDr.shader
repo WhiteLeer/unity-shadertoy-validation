@@ -2,21 +2,25 @@ Shader "Shadertoy/tffSDr_IridescentFibers"
 {
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Geometry" }
+        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" "Queue"="Geometry" }
         Cull Off ZWrite Off ZTest Always
 
         Pass
         {
             Name "ForwardUnlit"
+            Tags { "LightMode"="SRPDefaultUnlit" }
             HLSLPROGRAM
+            #pragma target 4.0
             #pragma vertex Vert
             #pragma fragment Frag
-            #include "UnityCG.cginc"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             #define ST_PI 3.14159265
 
-            float4 _STResolution;
-            float _STTime;
+            CBUFFER_START(UnityPerMaterial)
+                float4 _STResolution;
+                float _STTime;
+            CBUFFER_END
 
             struct Attributes
             {
@@ -33,7 +37,7 @@ Shader "Shadertoy/tffSDr_IridescentFibers"
             Varyings Vert(Attributes input)
             {
                 Varyings output;
-                output.positionCS = UnityObjectToClipPos(input.vertex);
+                output.positionCS = TransformObjectToHClip(input.vertex.xyz);
                 output.uv = input.uv;
                 return output;
             }

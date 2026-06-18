@@ -1,0 +1,99 @@
+﻿{
+    "shaderId":  "XsSGDh",
+    "name":  "marble",
+    "author":  "mmalex",
+    "sourceUrl":  "https://www.shadertoy.com/view/XsSGDh",
+    "passCount":  1,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "",
+                       "outputs":  [
+
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-47\\Shaders\\XsSGDh_0_image.glsl"
+                   }
+               ],
+    "inputSummary":  [
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  1,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/95b90082f799f48677b4f206d856ad572f1d178c676269eac6347631d4447258.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "false",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4sXGRn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  2,
+                             "inputType":  "cubemap",
+                             "filepath":  "/media/a/585f9546c092f53ded45332b343144396c0b2d70d9965f585ebc172080d8aa58.jpg",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "false",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsfGzn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  3,
+                             "inputType":  "cubemap",
+                             "filepath":  "/media/a/793a105653fbdadabdc1325ca08675e1ce48ae5f12e37973829c87bea4be3232.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "false",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4sfGzn",
+                             "src":  null,
+                             "ctype":  null
+                         }
+                     ],
+    "downloadedAssets":  [
+                             {
+                                 "filepath":  "/media/a/95b90082f799f48677b4f206d856ad572f1d178c676269eac6347631d4447258.jpg",
+                                 "type":  "texture",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-47\\Textures\\95b90082f799f48677b4f206d856ad572f1d178c676269eac6347631d4447258.jpg"
+                             },
+                             {
+                                 "filepath":  "/media/a/585f9546c092f53ded45332b343144396c0b2d70d9965f585ebc172080d8aa58.jpg",
+                                 "type":  "cubemap",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-47\\Textures\\585f9546c092f53ded45332b343144396c0b2d70d9965f585ebc172080d8aa58.jpg"
+                             },
+                             {
+                                 "filepath":  "/media/a/793a105653fbdadabdc1325ca08675e1ce48ae5f12e37973829c87bea4be3232.png",
+                                 "type":  "cubemap",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-47\\Textures\\793a105653fbdadabdc1325ca08675e1ce48ae5f12e37973829c87bea4be3232.png"
+                             }
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "skippedPlaceholders":  [
+
+                            ],
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        }
+}

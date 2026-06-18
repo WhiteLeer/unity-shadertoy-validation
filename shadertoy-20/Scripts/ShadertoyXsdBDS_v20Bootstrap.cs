@@ -14,6 +14,11 @@ public class ShadertoyXsdBDS_v20Bootstrap : ShadertoyBootstrapBase
     protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-20/shadertoy-20-capture.resolution.json";
 
 #if UNITY_EDITOR
+    private void OnEnable()
+    {
+        OnValidate();
+    }
+
     private void OnValidate()
     {
         if (channel0Texture == null && "Assets/unity-shadertoy-validation/shadertoy-20/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png" != "")

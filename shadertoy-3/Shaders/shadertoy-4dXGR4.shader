@@ -1,4 +1,4 @@
-Shader "Shadertoy/4dXGR4_MainSequenceStar"
+﻿Shader "Shadertoy/4dXGR4_MainSequenceStar"
 {
     Properties
     {
@@ -30,6 +30,7 @@ Shader "Shadertoy/4dXGR4_MainSequenceStar"
             #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
             #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyCompat.hlsl"
 
             TEXTURE2D(_Channel0);
@@ -163,7 +164,7 @@ Shader "Shadertoy/4dXGR4_MainSequenceStar"
 
             float4 Frag(Varyings input) : SV_Target
             {
-                iResolution = float3(_ScreenParams.xy, 1.0);
+                iResolution = float3(_STResolution.xy, 1.0);
                 iTime = _Time.y;
 
                 float4 col = 0;
@@ -175,3 +176,4 @@ Shader "Shadertoy/4dXGR4_MainSequenceStar"
         }
     }
 }
+

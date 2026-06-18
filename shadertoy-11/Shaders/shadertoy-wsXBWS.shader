@@ -1,4 +1,4 @@
-Shader "Shadertoy/wsXBWS_ComicBlobs"
+﻿Shader "Shadertoy/wsXBWS_ComicBlobs"
 {
     Properties
     {
@@ -21,6 +21,8 @@ Shader "Shadertoy/wsXBWS_ComicBlobs"
             #pragma vertex Vert
             #pragma fragment Frag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
+            float _STTime;
 
             struct Attributes { float4 positionOS : POSITION; float2 uv : TEXCOORD0; };
             struct Varyings { float4 positionHCS : SV_POSITION; float2 uv : TEXCOORD0; };
@@ -93,17 +95,17 @@ Shader "Shadertoy/wsXBWS_ComicBlobs"
 
             float scene(float3 p)
             {
-                float rad = 3.0 + p.z + sin(p.y / 2.0 + _Time.y) + cos(p.x / 3.0 + _Time.y * 0.9);
+                float rad = 3.0 + p.z + sin(p.y / 2.0 + _STTime) + cos(p.x / 3.0 + _STTime * 0.9);
                 float dist = 10000.0;
                 [unroll]
                 for (int i = 0; i < 4; i++)
                 {
                     float fi = (float)(i + 1);
                     float3 rot = hash33(float3(fi, cos((float)i), sin((float)i)));
-                    float d = comp(p, rot, _Time.y / 2.0 * fi);
+                    float d = comp(p, rot, _STTime / 2.0 * fi);
                     dist = sminf(dist, d, 1.0);
                 }
-                return lerp(dist, rad, lerp(0.3, 0.8 + sin(_Time.y) * 0.2, 0.1));
+                return lerp(dist, rad, lerp(0.3, 0.8 + sin(_STTime) * 0.2, 0.1));
             }
 
             float3 norm(float3 p)
@@ -136,13 +138,13 @@ Shader "Shadertoy/wsXBWS_ComicBlobs"
 
             float4 Frag(Varyings i) : SV_Target
             {
-                float2 fragCoord = i.uv * _ScreenParams.xy;
-                float2 uv = float2(fragCoord.x / _ScreenParams.x, fragCoord.y / _ScreenParams.y);
+                float2 fragCoord = i.uv * _STResolution.xy;
+                float2 uv = float2(fragCoord.x / _STResolution.x, fragCoord.y / _STResolution.y);
                 uv -= 0.5;
-                uv /= float2(_ScreenParams.y / _ScreenParams.x, 1.0);
+                uv /= float2(_STResolution.y / _STResolution.x, 1.0);
 
                 float3 cam = normalize(float3(4.0, uv));
-                float3 init = float3(-50.0, 0.0, sin(_Time.y * 0.37) * 1.4);
+                float3 init = float3(-50.0, 0.0, sin(_STTime * 0.37) * 1.4);
                 cam = erot(cam, float3(0, 1, 0), -0.5);
                 init = erot(init, float3(0, 1, 0), -0.5);
 
@@ -173,7 +175,7 @@ Shader "Shadertoy/wsXBWS_ComicBlobs"
                 [loop]
                 for (int a = 0; a < 8; a++)
                 {
-                    int2 id = (((int2)(fragCoord / 16.0 + float2(_Time.y * 10.0, _Time.y * 20.0))) % 2) * 2 - 1;
+                    int2 id = (((int2)(fragCoord / 16.0 + float2(_STTime * 10.0, _STTime * 20.0))) % 2) * 2 - 1;
                     // GLSL: bayer(ivec2(fragCoord)+i+ivec2(i/4,0))
                     // "+ i" adds to both components in GLSL vector-scalar arithmetic.
                     float seed = bayer8((int2)fragCoord + int2(a, a) + int2(a / 4, 0));
@@ -189,3 +191,6 @@ Shader "Shadertoy/wsXBWS_ComicBlobs"
         }
     }
 }
+
+
+

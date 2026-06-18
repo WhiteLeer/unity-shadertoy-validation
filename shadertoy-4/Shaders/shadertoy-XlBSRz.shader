@@ -30,6 +30,8 @@
             #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
+            float _STTime;
 
             TEXTURE2D(_Channel0);
             SAMPLER(sampler_Channel0);
@@ -431,8 +433,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
             float4 Frag(Varyings input) : SV_Target
             {
-                iResolution = float3(_ScreenParams.xy, 1.0);
-                iTime = _Time.y;
+                iResolution = float3(_STResolution.xy, 1.0);
+                iTime = _STTime;
                 iMouse = _Mouse;
 
                 float4 col = 0;
@@ -444,5 +446,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         }
     }
 }
+
+
+
 
 

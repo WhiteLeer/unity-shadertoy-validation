@@ -8,24 +8,29 @@ Shader "Shadertoy/XdB3DG_AnisotropicHighlights"
 
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Geometry" }
+        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" "Queue"="Geometry" }
         Cull Off ZWrite Off ZTest Always
 
         Pass
         {
             Name "ForwardUnlit"
+            Tags { "LightMode"="SRPDefaultUnlit" }
             HLSLPROGRAM
+            #pragma target 4.0
             #pragma vertex Vert
             #pragma fragment Frag
-            #include "UnityCG.cginc"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+            CBUFFER_START(UnityPerMaterial)
+                float4 _ChannelResolution0;
+                float4 _ChannelResolution1;
+                float4 _STResolution;
+                float _STTime;
+                float4 _STMouse;
+            CBUFFER_END
 
             sampler2D _Channel0;
             sampler2D _Channel1;
-            float4 _ChannelResolution0;
-            float4 _ChannelResolution1;
-            float4 _STResolution;
-            float _STTime;
-            float4 _STMouse;
 
             static const float traceStart = 0.1;
             static const float traceEnd = 40.0;
@@ -45,7 +50,7 @@ Shader "Shadertoy/XdB3DG_AnisotropicHighlights"
             Varyings Vert(Attributes input)
             {
                 Varyings output;
-                output.positionCS = UnityObjectToClipPos(input.vertex);
+                output.positionCS = TransformObjectToHClip(input.vertex.xyz);
                 output.uv = input.uv;
                 return output;
             }

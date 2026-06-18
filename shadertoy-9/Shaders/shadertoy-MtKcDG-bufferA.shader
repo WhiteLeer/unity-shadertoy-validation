@@ -23,6 +23,7 @@
             #pragma vertex Vert
             #pragma fragment Frag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
 
             struct Attributes { float4 positionOS : POSITION; float2 uv : TEXCOORD0; };
             struct Varyings { float4 positionHCS : SV_POSITION; float2 uv : TEXCOORD0; };
@@ -112,7 +113,7 @@
 
             float4 Frag(Varyings i) : SV_Target
             {
-                float2 Res = _ScreenParams.xy;
+                float2 Res = _STResolution.xy;
                 float2 Res0 = GetRes0();
                 float2 Res1 = GetRes1();
 
@@ -217,3 +218,4 @@
         }
     }
 }
+

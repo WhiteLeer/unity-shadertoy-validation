@@ -29,6 +29,8 @@
             #pragma fragment Frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            float4 _STResolution;
+            float _STTime;
 
             struct Attributes
             {
@@ -167,8 +169,8 @@
 
             float4 Frag(Varyings input) : SV_Target
             {
-                iResolution = float3(_ScreenParams.xy, 1.0);
-                iTime = _Time.y;
+                iResolution = float3(_STResolution.xy, 1.0);
+                iTime = _STTime;
 
                 float4 col = 0;
                 mainImage(col, input.uv * iResolution.xy);
@@ -179,3 +181,6 @@
         }
     }
 }
+
+
+

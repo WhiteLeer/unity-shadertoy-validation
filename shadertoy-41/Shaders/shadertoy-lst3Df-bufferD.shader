@@ -7,21 +7,25 @@ Shader "Shadertoy/lst3Df_BufferD"
 
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Geometry" }
+        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" "Queue"="Geometry" }
         Cull Off ZWrite Off ZTest Always
 
         Pass
         {
             Name "BufferD"
+            Tags { "LightMode"="SRPDefaultUnlit" }
             HLSLPROGRAM
+            #pragma target 4.0
             #pragma vertex Vert
             #pragma fragment Frag
-            #include "UnityCG.cginc"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             sampler2D _SourceTex;
-            float4 _STResolution;
-            float _STTime;
-            float4 _STMouse;
+            CBUFFER_START(UnityPerMaterial)
+                float4 _STResolution;
+                float _STTime;
+                float4 _STMouse;
+            CBUFFER_END
 
             #define BLURDIST_PX 64.0
             #define NUM_SAMPLES 16
@@ -41,7 +45,7 @@ Shader "Shadertoy/lst3Df_BufferD"
             Varyings Vert(Attributes input)
             {
                 Varyings output;
-                output.positionCS = UnityObjectToClipPos(input.vertex);
+                output.positionCS = TransformObjectToHClip(input.vertex.xyz);
                 output.uv = input.uv;
                 return output;
             }
