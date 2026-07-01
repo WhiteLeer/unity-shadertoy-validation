@@ -1,0 +1,332 @@
+﻿{
+    "shaderId":  "lst3Df",
+    "name":  "post: bokeh blur, octagon 4pass",
+    "author":  "hornet",
+    "sourceUrl":  "https://www.shadertoy.com/view/lst3Df",
+    "passCount":  5,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-41\\Shaders\\lst3Df_0_image.glsl"
+                   },
+                   {
+                       "index":  1,
+                       "type":  "buffer",
+                       "name":  "Buffer A",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-41\\Shaders\\lst3Df_1_buffer.glsl"
+                   },
+                   {
+                       "index":  2,
+                       "type":  "buffer",
+                       "name":  "Buffer B",
+                       "outputs":  [
+                                       {
+                                           "id":  "XsXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-41\\Shaders\\lst3Df_2_buffer.glsl"
+                   },
+                   {
+                       "index":  3,
+                       "type":  "buffer",
+                       "name":  "Buffer C",
+                       "outputs":  [
+                                       {
+                                           "id":  "4sXGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-41\\Shaders\\lst3Df_3_buffer.glsl"
+                   },
+                   {
+                       "index":  4,
+                       "type":  "buffer",
+                       "name":  "Buffer D",
+                       "outputs":  [
+                                       {
+                                           "id":  "XdfGR8",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-41\\Shaders\\lst3Df_4_buffer.glsl"
+                   }
+               ],
+    "inputSummary":  [
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  1,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer01.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  2,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer02.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4sXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  0,
+                             "passType":  "image",
+                             "channel":  3,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer03.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XdfGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  1,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/e6e5631ce1237ae4c05b3563eda686400a401df4548d0f9fad40ecac1659c46c.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XdfGRn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  1,
+                             "passType":  "buffer",
+                             "channel":  1,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/fb918796edc3d2221218db0811e240e72e340350008338b0c07a52bd353666a6.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4sfGRn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  1,
+                             "passType":  "buffer",
+                             "channel":  2,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/92d7758c402f0927011ca8d0a7e40251439fba3a1dac26f5b8b62026323501aa.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsX3Rn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  2,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer00.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4dXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  3,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/e6e5631ce1237ae4c05b3563eda686400a401df4548d0f9fad40ecac1659c46c.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XdfGRn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  3,
+                             "passType":  "buffer",
+                             "channel":  1,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/fb918796edc3d2221218db0811e240e72e340350008338b0c07a52bd353666a6.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4sfGRn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  3,
+                             "passType":  "buffer",
+                             "channel":  2,
+                             "inputType":  "texture",
+                             "filepath":  "/media/a/92d7758c402f0927011ca8d0a7e40251439fba3a1dac26f5b8b62026323501aa.jpg",
+                             "sampler":  {
+                                             "filter":  "mipmap",
+                                             "wrap":  "repeat",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "XsX3Rn",
+                             "src":  null,
+                             "ctype":  null
+                         },
+                         {
+                             "passIndex":  4,
+                             "passType":  "buffer",
+                             "channel":  0,
+                             "inputType":  "buffer",
+                             "filepath":  "/media/previz/buffer02.png",
+                             "sampler":  {
+                                             "filter":  "linear",
+                                             "wrap":  "clamp",
+                                             "vflip":  "true",
+                                             "srgb":  "false",
+                                             "internal":  "byte"
+                                         },
+                             "id":  "4sXGR8",
+                             "src":  null,
+                             "ctype":  null
+                         }
+                     ],
+    "downloadedAssets":  [
+                             {
+                                 "filepath":  "/media/a/e6e5631ce1237ae4c05b3563eda686400a401df4548d0f9fad40ecac1659c46c.jpg",
+                                 "type":  "texture",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-41\\Textures\\e6e5631ce1237ae4c05b3563eda686400a401df4548d0f9fad40ecac1659c46c.jpg"
+                             },
+                             {
+                                 "filepath":  "/media/a/fb918796edc3d2221218db0811e240e72e340350008338b0c07a52bd353666a6.jpg",
+                                 "type":  "texture",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-41\\Textures\\fb918796edc3d2221218db0811e240e72e340350008338b0c07a52bd353666a6.jpg"
+                             },
+                             {
+                                 "filepath":  "/media/a/92d7758c402f0927011ca8d0a7e40251439fba3a1dac26f5b8b62026323501aa.jpg",
+                                 "type":  "texture",
+                                 "local":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-41\\Textures\\92d7758c402f0927011ca8d0a7e40251439fba3a1dac26f5b8b62026323501aa.jpg"
+                             }
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "skippedPlaceholders":  [
+                                {
+                                    "filepath":  "/media/previz/buffer00.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer01.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer02.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer03.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer00.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                },
+                                {
+                                    "filepath":  "/media/previz/buffer02.png",
+                                    "type":  "buffer",
+                                    "reason":  "previz placeholder disabled"
+                                }
+                            ],
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        }
+}
