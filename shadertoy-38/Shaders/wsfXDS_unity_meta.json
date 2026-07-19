@@ -1,0 +1,38 @@
+﻿{
+    "shaderId":  "wsfXDS",
+    "name":  "[TWITCH] Sous l\u0027ocean",
+    "author":  "Flopine",
+    "sourceUrl":  "https://www.shadertoy.com/view/wsfXDS",
+    "passCount":  1,
+    "passes":  [
+                   {
+                       "index":  0,
+                       "type":  "image",
+                       "name":  "Image",
+                       "outputs":  [
+                                       {
+                                           "id":  "4dfGRr",
+                                           "channel":  0
+                                       }
+                                   ],
+                       "glsl":  "C:\\Users\\wepie\\My project\\Assets\\unity-shadertoy-validation\\shadertoy-46\\Shaders\\wsfXDS_0_image.glsl"
+                   }
+               ],
+    "inputSummary":  [
+
+                     ],
+    "downloadedAssets":  [
+
+                         ],
+    "failedAssets":  [
+
+                     ],
+    "skippedPlaceholders":  [
+
+                            ],
+    "unityResolution":  {
+                            "width":  512,
+                            "height":  288,
+                            "basis":  "webglViewport"
+                        }
+}
