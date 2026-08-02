@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -11,7 +11,7 @@ public class ShadertoyXlBSRzBootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/XlBSRz_VolumetricIntegration";
     protected override string QuadObjectName => "ST_XlBSRz_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-4/shadertoy-4-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-1/shadertoy-1-capture.resolution.json";
 
 #if UNITY_EDITOR
     protected override void OnEnable()
@@ -25,7 +25,7 @@ public class ShadertoyXlBSRzBootstrap : ShadertoyBootstrapBase
         if (channel0Texture == null)
         {
             channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>(
-                "Assets/unity-shadertoy-validation/shadertoy-4/Textures/0a40562379b63dfb89227e6d172f39fdce9022cba76623f1054a2c83d6c0ba5d.png"
+                "Assets/unity-shadertoy-validation/shadertoy-1/Textures/0a40562379b63dfb89227e6d172f39fdce9022cba76623f1054a2c83d6c0ba5d.png"
             );
         }
     }

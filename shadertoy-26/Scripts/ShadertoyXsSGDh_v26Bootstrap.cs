@@ -1,15 +1,15 @@
 using System.IO;
 using UnityEngine;
 
-public class ShadertoyXsSGDh_v47Bootstrap : ShadertoyBootstrapBase
+public class ShadertoyXsSGDh_v26Bootstrap : ShadertoyBootstrapBase
 {
     protected override string TargetShaderName => "Shadertoy/XsSGDh_Marble";
     protected override string QuadObjectName => "ST_XsSGDh_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-47/shadertoy-47-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-26/shadertoy-26-capture.resolution.json";
 
-    private const string Channel1RelativePath = "unity-shadertoy-validation/shadertoy-47/Textures/95b90082f799f48677b4f206d856ad572f1d178c676269eac6347631d4447258.jpg";
-    private const string Channel2RelativePath = "unity-shadertoy-validation/shadertoy-47/Textures/585f9546c092f53ded45332b343144396c0b2d70d9965f585ebc172080d8aa58.jpg";
-    private const string Channel3RelativePath = "unity-shadertoy-validation/shadertoy-47/Textures/793a105653fbdadabdc1325ca08675e1ce48ae5f12e37973829c87bea4be3232.png";
+    private const string Channel1RelativePath = "unity-shadertoy-validation/shadertoy-26/Textures/95b90082f799f48677b4f206d856ad572f1d178c676269eac6347631d4447258.jpg";
+    private const string Channel2RelativePath = "unity-shadertoy-validation/shadertoy-26/Textures/585f9546c092f53ded45332b343144396c0b2d70d9965f585ebc172080d8aa58.jpg";
+    private const string Channel3RelativePath = "unity-shadertoy-validation/shadertoy-26/Textures/793a105653fbdadabdc1325ca08675e1ce48ae5f12e37973829c87bea4be3232.png";
 
     private Texture2D channel1;
     private Texture2D channel2;

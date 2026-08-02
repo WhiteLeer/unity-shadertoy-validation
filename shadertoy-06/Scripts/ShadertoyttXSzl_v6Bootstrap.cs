@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -7,14 +7,14 @@ using UnityEditor;
 
 [DisallowMultipleComponent]
 [ExecuteAlways]
-public class ShadertoyttXSzl_v14Bootstrap : MonoBehaviour
+public class ShadertoyttXSzl_v6Bootstrap : MonoBehaviour
 {
     [SerializeField] private Shader bufferAShader;
     [SerializeField] private Shader imageShader;
     [SerializeField] private int targetWidth = 512;
     [SerializeField] private int targetHeight = 288;
 
-    private const string ResolutionPath = "unity-shadertoy-validation/shadertoy-14/shadertoy-14-capture.resolution.json";
+    private const string ResolutionPath = "unity-shadertoy-validation/shadertoy-6/shadertoy-6-capture.resolution.json";
     private const string QuadName = "ST_ttXSzl_Quad";
 
     private Camera runtimeCamera;

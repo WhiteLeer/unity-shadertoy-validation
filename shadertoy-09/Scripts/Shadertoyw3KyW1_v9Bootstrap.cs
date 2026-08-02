@@ -4,7 +4,7 @@ using UnityEditor;
 #endif
 
 [DisallowMultipleComponent]
-public class Shadertoyw3KyW1_v22Bootstrap : ShadertoyBootstrapBase
+public class Shadertoyw3KyW1_v9Bootstrap : ShadertoyBootstrapBase
 {
     [SerializeField] private Texture2D channel0Texture;
     [SerializeField] private Texture2D channel1Texture;
@@ -24,7 +24,7 @@ public class Shadertoyw3KyW1_v22Bootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/w3KyW1_OceanWaterFull";
     protected override string QuadObjectName => "ST_w3KyW1_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-22/shadertoy-22-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-9/shadertoy-9-capture.resolution.json";
 
 #if UNITY_EDITOR
     protected override void OnEnable()
@@ -36,9 +36,9 @@ public class Shadertoyw3KyW1_v22Bootstrap : ShadertoyBootstrapBase
     private void OnValidate()
     {
         if (channel0Texture == null)
-            channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-22/Textures/0681c014f6c88c356cf9c0394ffe015acc94ec1474924855f45d22c3e70b5785.png");
+            channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-9/Textures/0681c014f6c88c356cf9c0394ffe015acc94ec1474924855f45d22c3e70b5785.png");
         if (channel1Texture == null)
-            channel1Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-22/Textures/buffer00.png");
+            channel1Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-9/Textures/buffer00.png");
     }
 #endif
 

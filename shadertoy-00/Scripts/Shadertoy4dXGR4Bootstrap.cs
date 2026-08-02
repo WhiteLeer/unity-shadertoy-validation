@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -18,7 +18,7 @@ public class Shadertoy4dXGR4Bootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/4dXGR4_MainSequenceStar";
     protected override string QuadObjectName => "ST_4dXGR4_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-3/shadertoy-3-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-0/shadertoy-0-capture.resolution.json";
 
 #if UNITY_EDITOR
     protected override void OnEnable()
@@ -32,14 +32,14 @@ public class Shadertoy4dXGR4Bootstrap : ShadertoyBootstrapBase
         if (channel0Texture == null)
         {
             channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>(
-                "Assets/unity-shadertoy-validation/shadertoy-3/Textures/92d7758c402f0927011ca8d0a7e40251439fba3a1dac26f5b8b62026323501aa.jpg"
+                "Assets/unity-shadertoy-validation/shadertoy-0/Textures/92d7758c402f0927011ca8d0a7e40251439fba3a1dac26f5b8b62026323501aa.jpg"
             );
         }
 
         if (channel1Clip == null)
         {
             channel1Clip = AssetDatabase.LoadAssetAtPath<AudioClip>(
-                "Assets/unity-shadertoy-validation/shadertoy-3/Audio/3c33c415862bb7964d256f4749408247da6596f2167dca2c86cc38f83c244aa6.mp3"
+                "Assets/unity-shadertoy-validation/shadertoy-0/Audio/3c33c415862bb7964d256f4749408247da6596f2167dca2c86cc38f83c244aa6.mp3"
             );
         }
     }

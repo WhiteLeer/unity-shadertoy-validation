@@ -1,4 +1,4 @@
-﻿# XlBSRz (VolumetricIntegration) 原理解析
+# XlBSRz (VolumetricIntegration) 原理解析
 
 ## 1. 效果类型
 - 单 pass 体积渲染演示，重点是介质积分与体积阴影。
@@ -17,5 +17,5 @@
 
 ## 4. 输入
 - `iChannel0` 噪声纹理 -> `_Channel0`
-- 分辨率由 `shadertoy-4-capture.resolution.json` 自动驱动
+- 分辨率由 `shadertoy-1-capture.resolution.json` 自动驱动
 

@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -7,35 +7,40 @@ using UnityEditor;
 
 [ExecuteAlways]
 [DisallowMultipleComponent]
-public class Shadertoy3lyXRt_v29Bootstrap : MonoBehaviour
+public class ShadertoylllBDM_v13Bootstrap : MonoBehaviour
 {
+    private enum DebugView
+    {
+        Final = 0,
+        BufferA = 1,
+        BufferB = 2
+    }
+
     [SerializeField] private Shader bufferAShader;
     [SerializeField] private Shader bufferBShader;
-    [SerializeField] private Shader bufferCShader;
     [SerializeField] private Shader imageShader;
-    [SerializeField] private int targetWidth = 1024;
-    [SerializeField] private int targetHeight = 576;
+    [SerializeField] private int targetWidth = 840;
+    [SerializeField] private int targetHeight = 473;
+    [SerializeField] private DebugView debugView = DebugView.Final;
 
-    private const string ResolutionPath = "unity-shadertoy-validation/shadertoy-29/shadertoy-29-capture.resolution.json";
-    private const string QuadName = "ST_3lyXRt_Quad";
+    private const string ResolutionPath = "unity-shadertoy-validation/shadertoy-13/shadertoy-13-capture.resolution.json";
+    private const string QuadName = "ST_lllBDM_Quad";
 
     private Camera runtimeCamera;
     private Transform runtimeQuadTransform;
     private Material matA;
     private Material matB;
-    private Material matC;
     private Material matImage;
     private RenderTexture rtA;
     private RenderTexture rtB;
-    private RenderTexture rtC;
+    private MeshRenderer quadRenderer;
 
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (bufferAShader == null) bufferAShader = Shader.Find("Shadertoy/3lyXRt_BufferA");
-        if (bufferBShader == null) bufferBShader = Shader.Find("Shadertoy/3lyXRt_BufferB");
-        if (bufferCShader == null) bufferCShader = Shader.Find("Shadertoy/3lyXRt_BufferC");
-        if (imageShader == null) imageShader = Shader.Find("Shadertoy/3lyXRt_SSR");
+        if (bufferAShader == null) bufferAShader = Shader.Find("Shadertoy/lllBDM_BufferA");
+        if (bufferBShader == null) bufferBShader = Shader.Find("Shadertoy/lllBDM_BufferB");
+        if (imageShader == null) imageShader = Shader.Find("Shadertoy/lllBDM_Goo");
     }
 #endif
 
@@ -57,11 +62,9 @@ public class Shadertoy3lyXRt_v29Bootstrap : MonoBehaviour
     {
         if (matA != null) DestroyImmediate(matA);
         if (matB != null) DestroyImmediate(matB);
-        if (matC != null) DestroyImmediate(matC);
         if (matImage != null) DestroyImmediate(matImage);
         if (rtA != null) rtA.Release();
         if (rtB != null) rtB.Release();
-        if (rtC != null) rtC.Release();
     }
 
     private void TryLoadResolution()
@@ -77,6 +80,10 @@ public class Shadertoy3lyXRt_v29Bootstrap : MonoBehaviour
 
     private void EnsureSceneSetup()
     {
+        if (bufferAShader == null) bufferAShader = Shader.Find("Shadertoy/lllBDM_BufferA");
+        if (bufferBShader == null) bufferBShader = Shader.Find("Shadertoy/lllBDM_BufferB");
+        if (imageShader == null) imageShader = Shader.Find("Shadertoy/lllBDM_Goo");
+
         if (runtimeCamera == null)
         {
             runtimeCamera = GetComponent<Camera>();
@@ -113,25 +120,27 @@ public class Shadertoy3lyXRt_v29Bootstrap : MonoBehaviour
                 }
             }
             runtimeQuadTransform = quad.transform;
+            quadRenderer = quad.GetComponent<MeshRenderer>();
+        }
+        else if (quadRenderer == null)
+        {
+            quadRenderer = runtimeQuadTransform.GetComponent<MeshRenderer>();
         }
 
         if (matA == null && bufferAShader != null) matA = new Material(bufferAShader);
         if (matB == null && bufferBShader != null) matB = new Material(bufferBShader);
-        if (matC == null && bufferCShader != null) matC = new Material(bufferCShader);
         if (matImage == null && imageShader != null) matImage = new Material(imageShader);
 
-        if (runtimeQuadTransform != null && matImage != null)
+        if (runtimeQuadTransform != null && matImage != null && quadRenderer != null)
         {
-            var renderer = runtimeQuadTransform.GetComponent<MeshRenderer>();
-            if (renderer != null) renderer.sharedMaterial = matImage;
+            quadRenderer.sharedMaterial = matImage;
         }
     }
 
     private void EnsureRenderTargets()
     {
-        EnsureRT(ref rtA, "ST_3lyXRt_A", RenderTextureFormat.RFloat);
-        EnsureRT(ref rtB, "ST_3lyXRt_B", RenderTextureFormat.ARGBHalf);
-        EnsureRT(ref rtC, "ST_3lyXRt_C", RenderTextureFormat.ARGBHalf);
+        EnsureRT(ref rtA, "ST_lllBDM_A", RenderTextureFormat.ARGBHalf);
+        EnsureRT(ref rtB, "ST_lllBDM_B", RenderTextureFormat.ARGBHalf);
     }
 
     private void EnsureRT(ref RenderTexture rt, string name, RenderTextureFormat format)
@@ -146,7 +155,7 @@ public class Shadertoy3lyXRt_v29Bootstrap : MonoBehaviour
         {
             rt = new RenderTexture(targetWidth, targetHeight, 0, format)
             {
-                filterMode = (format == RenderTextureFormat.RFloat) ? FilterMode.Bilinear : FilterMode.Point,
+                filterMode = FilterMode.Bilinear,
                 wrapMode = TextureWrapMode.Clamp,
                 name = name
             };
@@ -166,27 +175,42 @@ public class Shadertoy3lyXRt_v29Bootstrap : MonoBehaviour
             Graphics.Blit(null, rtA, matA, 0);
         }
 
-        if (matB != null && rtB != null)
+        if (matB != null && rtA != null && rtB != null)
         {
             matB.SetVector("_STResolution", res);
-            matB.SetFloat("_STTime", t);
+            matB.SetTexture("_Channel0", rtA);
             Graphics.Blit(null, rtB, matB, 0);
         }
 
-        if (matC != null && rtC != null)
+        if (matImage != null && rtB != null)
         {
-            matC.SetVector("_STResolution", res);
-            matC.SetFloat("_STTime", t);
-            Graphics.Blit(null, rtC, matC, 0);
-        }
-
-        if (matImage != null)
-        {
-            if (rtA != null) matImage.SetTexture("_Channel0", rtA);
-            if (rtB != null) matImage.SetTexture("_Channel1", rtB);
-            if (rtC != null) matImage.SetTexture("_Channel2", rtC);
             matImage.SetVector("_STResolution", res);
             matImage.SetFloat("_STTime", t);
+            matImage.SetTexture("_Channel0", rtB);
+        }
+
+        if (quadRenderer == null) return;
+        switch (debugView)
+        {
+            case DebugView.BufferA:
+                if (matA != null)
+                {
+                    matA.SetVector("_STResolution", res);
+                    matA.SetFloat("_STTime", t);
+                    quadRenderer.sharedMaterial = matA;
+                }
+                break;
+            case DebugView.BufferB:
+                if (matB != null)
+                {
+                    matB.SetVector("_STResolution", res);
+                    matB.SetTexture("_Channel0", rtA);
+                    quadRenderer.sharedMaterial = matB;
+                }
+                break;
+            default:
+                if (matImage != null) quadRenderer.sharedMaterial = matImage;
+                break;
         }
     }
 

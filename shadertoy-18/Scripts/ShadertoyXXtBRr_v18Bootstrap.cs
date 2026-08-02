@@ -1,13 +1,13 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Shadertoy7tlyzl_v25Bootstrap : ShadertoyBootstrapBase
+public class ShadertoyXXtBRr_v18Bootstrap : ShadertoyBootstrapBase
 {
     [SerializeField] private Vector2Int resolution = new Vector2Int(512, 288);
 
-    protected override string TargetShaderName => "Shadertoy/7tlyzl_ElectricBeam";
-    protected override string QuadObjectName => "ST_7tlyzl_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-25/shadertoy-25-capture.resolution.json";
+    protected override string TargetShaderName => "Shadertoy/XXtBRr_BalatroSwirl";
+    protected override string QuadObjectName => "ST_XXtBRr_Quad";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-18/shadertoy-18-capture.resolution.json";
 
     protected override void ConfigureMaterial(Material material)
     {

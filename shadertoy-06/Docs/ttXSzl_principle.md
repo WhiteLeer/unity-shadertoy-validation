@@ -1,4 +1,4 @@
-﻿# ttXSzl (simple npr experiments) 原理解析
+# ttXSzl (simple npr experiments) 原理解析
 
 ## 1. 结构总览
 - Pass A (`Buffer A`)：程序化光线求交，写入 `normal + id/shadow` 编码。
@@ -26,9 +26,9 @@
 
 ## 4. Unity 对应实现
 - Shader: `Shadertoy/ttXSzl_BufferA` + `Shadertoy/ttXSzl_Image`
-- Bootstrap: `ShadertoyttXSzl_v14Bootstrap.cs`
+- Bootstrap: `ShadertoyttXSzl_v6Bootstrap.cs`
 - 渲染链：`Graphics.Blit(null -> BufferA RT) -> _Channel0 -> Image`
-- 分辨率：从 `shadertoy-14-capture.resolution.json` 自动读取 `512x288`
+- 分辨率：从 `shadertoy-6-capture.resolution.json` 自动读取 `512x288`
 
 ## 5. 可调参数建议
 - 转速：`BufferA` 的 `ww`。

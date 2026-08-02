@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 [DisallowMultipleComponent]
-public class ShadertoyttXczl_v17Bootstrap : ShadertoyBootstrapBase
+public class ShadertoyttXczl_v19Bootstrap : ShadertoyBootstrapBase
 {
     [SerializeField] private Texture2D channel0Texture;
     [SerializeField] private Texture2D channel1Texture;
@@ -12,13 +12,13 @@ public class ShadertoyttXczl_v17Bootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/ttXczl_Screenprinting";
     protected override string QuadObjectName => "ST_ttXczl_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-17/shadertoy-17-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-19/shadertoy-19-capture.resolution.json";
 
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (channel0Texture == null && "Assets/unity-shadertoy-validation/shadertoy-17/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png" != "") channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-17/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png");
-        if (channel1Texture == null && "Assets/unity-shadertoy-validation/shadertoy-17/Textures/fb918796edc3d2221218db0811e240e72e340350008338b0c07a52bd353666a6.jpg" != "") channel1Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-17/Textures/fb918796edc3d2221218db0811e240e72e340350008338b0c07a52bd353666a6.jpg");
+        if (channel0Texture == null && "Assets/unity-shadertoy-validation/shadertoy-19/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png" != "") channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-19/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png");
+        if (channel1Texture == null && "Assets/unity-shadertoy-validation/shadertoy-19/Textures/fb918796edc3d2221218db0811e240e72e340350008338b0c07a52bd353666a6.jpg" != "") channel1Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-19/Textures/fb918796edc3d2221218db0811e240e72e340350008338b0c07a52bd353666a6.jpg");
     }
 #endif
 

@@ -1,13 +1,13 @@
 using System.IO;
 using UnityEngine;
 
-public class ShadertoydtXGzH_v44Bootstrap : ShadertoyBootstrapBase
+public class ShadertoydtXGzH_v24Bootstrap : ShadertoyBootstrapBase
 {
     protected override string TargetShaderName => "Shadertoy/dtXGzH_VolumetricFurBalls";
     protected override string QuadObjectName => "ST_dtXGzH_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-44/shadertoy-44-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-24/shadertoy-24-capture.resolution.json";
 
-    private const string Channel0RelativePath = "unity-shadertoy-validation/shadertoy-44/Textures/3083c722c0c738cad0f468383167a0d246f91af2bfa373e9c5c094fb8c8413e0.png";
+    private const string Channel0RelativePath = "unity-shadertoy-validation/shadertoy-24/Textures/3083c722c0c738cad0f468383167a0d246f91af2bfa373e9c5c094fb8c8413e0.png";
 
     private Texture2D channel0;
 
