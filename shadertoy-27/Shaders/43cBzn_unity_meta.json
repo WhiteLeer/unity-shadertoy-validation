@@ -1,0 +1,25 @@
+{
+  "shaderId": "43cBzn",
+  "name": "Grid Attractor",
+  "author": "takumifukasawa",
+  "sourceUrl": "https://www.shadertoy.com/view/43cBzn",
+  "passCount": 1,
+  "passes": [
+    {
+      "index": 0,
+      "type": "image",
+      "name": "Image",
+      "outputs": [],
+      "glsl": "C:/Users/wepie/My project/Assets/unity-shadertoy-validation/shadertoy-27/Shaders/43cBzn_0_image.glsl"
+    }
+  ],
+  "inputSummary": [],
+  "downloadedAssets": [],
+  "failedAssets": [],
+  "skippedPlaceholders": [],
+  "unityResolution": {
+    "width": 960,
+    "height": 540,
+    "basis": "canvasPixel"
+  }
+}
