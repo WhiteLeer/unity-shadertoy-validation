@@ -1,0 +1,25 @@
+{
+  "shaderId": "wc23Wc",
+  "name": "Grok [111]",
+  "author": "Xor",
+  "sourceUrl": "https://www.shadertoy.com/view/wc23Wc",
+  "passCount": 1,
+  "passes": [
+    {
+      "index": 0,
+      "type": "image",
+      "name": "Image",
+      "outputs": [],
+      "glsl": "C:/Users/wepie/My project/Assets/unity-shadertoy-validation/shadertoy-28/Shaders/wc23Wc_0_image.glsl"
+    }
+  ],
+  "inputSummary": [],
+  "downloadedAssets": [],
+  "failedAssets": [],
+  "skippedPlaceholders": [],
+  "unityResolution": {
+    "width": 960,
+    "height": 540,
+    "basis": "canvasPixel"
+  }
+}

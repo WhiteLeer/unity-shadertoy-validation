@@ -1,0 +1,32 @@
+{
+  "captureVersion": "shadertoy-unity-capture-v1",
+  "capturedAt": "2026-08-05T11:08:47.870Z",
+  "sourceUrl": "https://www.shadertoy.com/view/wc23Wc",
+  "shaderId": "wc23Wc",
+  "title": "Grok [111]",
+  "author": "Xor",
+  "description": "Shared by Musk!",
+  "captureMethod": "Chrome live page CodeMirror editor",
+  "networkJsonResponses": [],
+  "globals": {
+    "gShaderToy": "unavailable-in-isolated-evaluation"
+  },
+  "resolution": {
+    "unityResolution": {
+      "width": 960,
+      "height": 540,
+      "basis": "canvasPixel"
+    },
+    "canvasClientWidth": 640,
+    "canvasClientHeight": 360,
+    "devicePixelRatio": 1.5
+  },
+  "renderpass": {
+    "index": 0,
+    "type": "image",
+    "name": "Image",
+    "inputs": [],
+    "outputs": [],
+    "code": "/*\n    \"Grok\" by @XorDev\n    \n    Shared by Musk!\n    https://x.com/elonmusk/status/1894427923463246217\n*/\nvoid mainImage( out vec4 O, vec2 I)\n{\n    vec2 r=iResolution.xy, p=(I+I-r)/r.y;\n    O=.1/abs(length(p)-.5+.01/(p.xxxx-p.y));\n}"
+  }
+}
