@@ -1,0 +1,18 @@
+{
+  "captureVersion": "shadertoy-unity-resolution-v1",
+  "shaderId": "XdyXz3",
+  "sourceUrl": "https://www.shadertoy.com/view/XdyXz3",
+  "width": 960,
+  "height": 540,
+  "aspect": 1.7777777777777777,
+  "capturedCanvas": {
+    "width": 960,
+    "height": 540
+  },
+  "unityMaterialVector": [
+    960,
+    540,
+    0.0010416666666666667,
+    0.001851851851851852
+  ]
+}

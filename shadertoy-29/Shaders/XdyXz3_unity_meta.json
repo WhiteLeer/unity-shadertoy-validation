@@ -1,0 +1,31 @@
+{
+  "shaderId": "XdyXz3",
+  "name": "Noise Holes",
+  "author": "airtight",
+  "sourceUrl": "https://www.shadertoy.com/view/XdyXz3",
+  "passCount": 1,
+  "passes": [
+    {
+      "index": 0,
+      "name": "Image",
+      "type": "image",
+      "inputs": [
+        {
+          "channel": 0,
+          "type": "texture2D",
+          "bound": false
+        }
+      ]
+    }
+  ],
+  "resolution": {
+    "width": 960,
+    "height": 540
+  },
+  "downloadedAssets": [],
+  "failedAssets": [],
+  "skippedPlaceholders": [],
+  "portNotes": [
+    "Unbound iChannel0 is represented as 0.0 in HLSL; no placeholder texture was created."
+  ]
+}
