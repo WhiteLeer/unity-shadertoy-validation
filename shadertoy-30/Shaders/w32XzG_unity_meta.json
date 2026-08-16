@@ -1,0 +1,26 @@
+{
+  "shaderId": "w32XzG",
+  "name": "globules bubbles",
+  "author": "FabriceNeyret2",
+  "sourceUrl": "https://www.shadertoy.com/view/w32XzG",
+  "passCount": 1,
+  "passes": [
+    {
+      "index": 0,
+      "name": "Image",
+      "type": "image",
+      "inputs": []
+    }
+  ],
+  "resolution": {
+    "width": 960,
+    "height": 540
+  },
+  "downloadedAssets": [],
+  "failedAssets": [],
+  "skippedPlaceholders": [],
+  "portNotes": [
+    "The GLSL global depth state is represented by an equivalent HLSL out parameter.",
+    "No placeholder texture was created."
+  ]
+}

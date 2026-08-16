@@ -1,0 +1,26 @@
+{
+  "captureVersion": "shadertoy-unity-resolution-v1",
+  "shaderId": "w32XzG",
+  "sourceUrl": "https://www.shadertoy.com/view/w32XzG",
+  "width": 960,
+  "height": 540,
+  "unityResolution": {
+    "width": 960,
+    "height": 540
+  },
+  "glViewport": {
+    "w": 960,
+    "h": 540
+  },
+  "aspect": 1.7777777777777777,
+  "capturedCanvas": {
+    "width": 960,
+    "height": 540
+  },
+  "unityMaterialVector": [
+    960,
+    540,
+    0.0010416666666666667,
+    0.001851851851851852
+  ]
+}
