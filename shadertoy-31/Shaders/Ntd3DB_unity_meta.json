@@ -1,0 +1,27 @@
+{
+  "shaderId": "Ntd3DB",
+  "name": "black holes - acid",
+  "author": "morisil",
+  "sourceUrl": "https://www.shadertoy.com/view/Ntd3DB",
+  "passCount": 1,
+  "passes": [
+    {
+      "index": 0,
+      "name": "Image",
+      "type": "image",
+      "inputs": []
+    }
+  ],
+  "resolution": {
+    "width": 960,
+    "height": 540
+  },
+  "downloadedAssets": [],
+  "failedAssets": [],
+  "skippedPlaceholders": [],
+  "portNotes": [
+    "GLSL mat2 multiplication uses HLSL mul with a row-vector equivalent.",
+    "GLSL atan(y,x) is represented by HLSL atan2(y,x).",
+    "No placeholder texture was created."
+  ]
+}

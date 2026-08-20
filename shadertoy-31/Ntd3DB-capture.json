@@ -1,0 +1,48 @@
+{
+  "captureVersion": "shadertoy-unity-capture-v1",
+  "capturedAt": "2026-08-05T11:52:31.058Z",
+  "source": {
+    "url": "https://www.shadertoy.com/view/Ntd3DB",
+    "shaderId": "Ntd3DB",
+    "title": "black holes - acid",
+    "author": "morisil",
+    "date": "2021-11-11",
+    "description": "Testing something out",
+    "captureMethod": "Chrome live page CodeMirror editor"
+  },
+  "globals": {
+    "gShaderToy": "unavailable-in-isolated-evaluation"
+  },
+  "networkJsonResponses": [],
+  "resolution": {
+    "width": 960,
+    "height": 540,
+    "unityResolution": {
+      "width": 960,
+      "height": 540
+    },
+    "glViewport": {
+      "w": 960,
+      "h": 540
+    },
+    "dpr": 1.5,
+    "canvasClientWidth": 960,
+    "canvasClientHeight": 540,
+    "glViewportWidth": 960,
+    "glViewportHeight": 540
+  },
+  "renderpasses": [
+    {
+      "index": 0,
+      "name": "Image",
+      "type": "image",
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "code": "// Fork of \"black holes\" by morisil. https://shadertoy.com/view/Nlt3DB\n// 2021-11-11 17:50:05\n\n// Fork of \"depth of field focus study 4\" by morisil. https://shadertoy.com/view/stdGzf\n// 2021-11-11 17:35:53\n\n// Fork of \"depth of field focus study 3\" by morisil. https://shadertoy.com/view/stdGRf\n// 2021-11-09 22:06:23\n\n// Fork of \"depth of field focus study 2\" by morisil. https://shadertoy.com/view/flc3zX\n// 2021-11-09 21:23:07\n\n// Fork of \"depth of field focus study\" by morisil. https://shadertoy.com/view/sld3zB\n// 2021-11-08 19:52:49\n\nconst float CHROMATIC_ABBERATION = .02;\nconst float ITERATIONS = 20.;\nconst float INITIAL_LUMA = .5;\n\nmat2 rotate2d(float _angle){\n    return mat2(cos(_angle),-sin(_angle),\n                sin(_angle),cos(_angle));\n}\n\n\nfloat getColorComponent(in vec2 st, in float modScale, in float blur, in float shapeSize) {\n    vec2 modSt = mod(st, 1. / modScale) * modScale * 2. - 1.;\n    float dist = length(modSt);\n    float angle = atan(modSt.x, modSt.y);\n    float shapeMap = smoothstep(shapeSize + blur, shapeSize - blur, dist);\n    return shapeMap;\n}\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord) {\n    vec2 st =\n        (2.* fragCoord - iResolution.xy)\n        / min(iResolution.x, iResolution.y);\n    st *= rotate2d(sin(iTime * .6 + st.x + st.y) * .3);\n    st *= (sin(iTime * .3) + 2.) * .3;\n\n    st *= log(length(sin(st * 5.18)) * cos(iTime * .1) + 1.2) * 5.;\n    float modScale = 1.;\n\n    vec3 color = vec3(0);\n    float luma = INITIAL_LUMA;\n    float blur = .2;\n    float shapeSize = .2 + (sin(iTime * .7) + 1.) * .2;\n    for (float i = 0.; i < ITERATIONS; i++) {\n        vec2 center = st + vec2(sin(iTime * .5), cos(iTime * .3)) * 2.;\n        //center += pow(length(center), 1.);\n        vec3 shapeColor = vec3(\n            getColorComponent(center - st * CHROMATIC_ABBERATION, modScale, blur, shapeSize),\n            getColorComponent(center, modScale, blur, shapeSize),\n            getColorComponent(center + st * CHROMATIC_ABBERATION, modScale, blur, shapeSize)        \n        ) * luma;\n        st *= 1.1;\n        st *= rotate2d(sin(iTime  * .05) * .3);\n        color += shapeColor;\n        color = clamp(color, 0., 1.);\n        if (color == vec3(1)) break;\n        luma *= .8;\n        blur *= .63;\n    }\n    fragColor = vec4(color, 1.0);\n}",
+  "notes": [
+    "Buffer A-D are inactive page tabs; the shader has only an Image pass.",
+    "No iChannel input or external texture asset is referenced."
+  ]
+}
