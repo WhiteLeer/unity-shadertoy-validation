@@ -3,7 +3,6 @@ Shader "Shadertoy/NdS3zK_BufferA"
     Properties { _Channel0("Previous Buffer A", 2D) = "black" {} }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" }
         Pass
         {
             Name "BufferA"

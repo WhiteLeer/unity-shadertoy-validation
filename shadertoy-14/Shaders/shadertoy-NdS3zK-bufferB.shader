@@ -7,7 +7,6 @@ Shader "Shadertoy/NdS3zK_BufferB"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" }
         Pass
         {
             Name "BufferB"

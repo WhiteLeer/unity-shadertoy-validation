@@ -2,7 +2,6 @@ Shader "Shadertoy/3lyXRt_BufferB"
 {
     SubShader
     {
-        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" }
         Pass
         {
             Name "BufferB"

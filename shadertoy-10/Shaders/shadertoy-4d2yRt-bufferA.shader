@@ -2,7 +2,6 @@ Shader "Shadertoy/4d2yRt_BufferA"
 {
     SubShader
     {
-        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" "Queue"="Geometry" }
         Pass
         {
             Name "BufferA"

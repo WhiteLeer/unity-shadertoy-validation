@@ -2,11 +2,9 @@
 {
     SubShader
     {
-        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" "Queue"="Geometry" }
         Pass
         {
             Name "BufferA"
-            Tags { "LightMode"="UniversalForward" }
             Cull Off
             ZWrite Off
             ZTest Always

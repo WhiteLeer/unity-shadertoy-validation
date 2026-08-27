@@ -3,7 +3,6 @@ Shader "Shadertoy/4d2yRt_BufferC"
     Properties { _Channel0("Channel0", 2D) = "black" {} }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" }
         Pass
         {
             Name "BufferC"

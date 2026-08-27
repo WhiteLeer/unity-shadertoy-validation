@@ -2,7 +2,6 @@ Shader "Shadertoy/lllBDM_BufferA"
 {
     SubShader
     {
-        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" }
         Pass
         {
             Name "BufferA"

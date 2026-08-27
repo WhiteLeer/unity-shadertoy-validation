@@ -32,11 +32,6 @@ Shader "Shadertoy/stlcW7_MagmaCrystal"
 
     SubShader
     {
-        Tags
-        {
-            "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" "Queue"="Geometry"
-        }
-
         HLSLINCLUDE
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
         #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyCompat.hlsl"
@@ -319,10 +314,6 @@ Shader "Shadertoy/stlcW7_MagmaCrystal"
         Pass
         {
             Name "Unlit"
-            Tags
-            {
-                "LightMode" = "SRPDefaultUnlit"
-            }
             AlphaToMask [_AlphaToMask]
 
             HLSLPROGRAM
@@ -342,27 +333,6 @@ Shader "Shadertoy/stlcW7_MagmaCrystal"
             #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
             #define SHADERTOY_RENDER_FUNCTION RenderShadertoyEntry
             #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyURPForwardPass.hlsl"
-            ENDHLSL
-        }
-
-        Pass
-        {
-            Name "DepthOnly"
-            Tags
-            {
-                "LightMode" = "DepthOnly"
-            }
-            ZWrite On
-            ColorMask R
-            HLSLPROGRAM
-            #pragma target 2.0
-            #pragma vertex DepthOnlyVertex
-            #pragma fragment DepthOnlyFragment
-            #pragma shader_feature_local _ALPHATEST_ON
-            #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-            #pragma multi_compile_instancing
-            #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
-            #include "Assets/unity-shadertoy-validation/Common/Shaders/ShadertoyDepthOnlyPass.hlsl"
             ENDHLSL
         }
     }
