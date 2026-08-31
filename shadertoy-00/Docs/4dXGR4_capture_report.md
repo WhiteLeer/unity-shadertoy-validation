@@ -1,7 +1,7 @@
 ﻿# Capture Report - 4dXGR4
 
 - Source: https://www.shadertoy.com/view/4dXGR4
-- Folder: C:\Users\wepie\My project\Assets\unity-shadertoy-validation\shadertoy-3
+- Folder: Assets/unity-shadertoy-validation/shadertoy-00
 - Resolution: 1024x576
 - Scene: present
 - Principle: present

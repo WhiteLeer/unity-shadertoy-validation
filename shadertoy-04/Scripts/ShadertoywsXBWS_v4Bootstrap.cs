@@ -10,7 +10,7 @@ public class ShadertoywsXBWS_v4Bootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/wsXBWS_ComicBlobs";
     protected override string QuadObjectName => "ST_wsXBWS_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-4/shadertoy-4-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-04/shadertoy-4-capture.resolution.json";
 
 #if UNITY_EDITOR
     protected override void OnEnable()
@@ -21,7 +21,7 @@ public class ShadertoywsXBWS_v4Bootstrap : ShadertoyBootstrapBase
 
     private void OnValidate()
     {
-        if (channel0Texture == null && "Assets/unity-shadertoy-validation/shadertoy-4/Textures/85a6d68622b36995ccb98a89bbb119edf167c914660e4450d313de049320005c.png" != "") channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-4/Textures/85a6d68622b36995ccb98a89bbb119edf167c914660e4450d313de049320005c.png");
+        if (channel0Texture == null && "Assets/unity-shadertoy-validation/shadertoy-04/Textures/85a6d68622b36995ccb98a89bbb119edf167c914660e4450d313de049320005c.png" != "") channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-04/Textures/85a6d68622b36995ccb98a89bbb119edf167c914660e4450d313de049320005c.png");
     }
 #endif
 

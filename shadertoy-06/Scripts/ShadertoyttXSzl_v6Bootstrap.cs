@@ -14,7 +14,7 @@ public class ShadertoyttXSzl_v6Bootstrap : MonoBehaviour
     [SerializeField] private int targetWidth = 512;
     [SerializeField] private int targetHeight = 288;
 
-    private const string ResolutionPath = "unity-shadertoy-validation/shadertoy-6/shadertoy-6-capture.resolution.json";
+    private const string ResolutionPath = "unity-shadertoy-validation/shadertoy-06/shadertoy-6-capture.resolution.json";
     private const string QuadName = "ST_ttXSzl_Quad";
 
     private Camera runtimeCamera;

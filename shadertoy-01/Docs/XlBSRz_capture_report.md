@@ -1,7 +1,7 @@
 ﻿# Capture Report - XlBSRz
 
 - Source: https://www.shadertoy.com/view/XlBSRz
-- Folder: C:\Users\wepie\My project\Assets\unity-shadertoy-validation\shadertoy-4
+- Folder: Assets/unity-shadertoy-validation/shadertoy-01
 - Resolution: 512x288
 - Scene: present
 - Principle: present

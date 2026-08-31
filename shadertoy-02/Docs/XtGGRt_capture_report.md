@@ -1,7 +1,7 @@
 ﻿# Capture Report - XtGGRt
 
 - Source: https://www.shadertoy.com/view/XtGGRt
-- Folder: C:\Users\wepie\My project\Assets\unity-shadertoy-validation\shadertoy-8
+- Folder: Assets/unity-shadertoy-validation/shadertoy-02
 - Resolution: 512x288
 - Passes: 1
 - Inputs: 0

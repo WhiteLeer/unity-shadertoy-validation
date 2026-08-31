@@ -8,7 +8,7 @@ public class ShadertoyXtGGRt_v2Bootstrap : ShadertoyBootstrapBase
 {
     protected override string TargetShaderName => "Shadertoy/XtGGRt_Auroras";
     protected override string QuadObjectName => "ST_XtGGRt_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-2/shadertoy-2-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-02/shadertoy-2-capture.resolution.json";
 
 #if UNITY_EDITOR
     private void OnValidate() { }

@@ -11,7 +11,7 @@ public class ShadertoyXsdBDS_v8Bootstrap : ShadertoyBootstrapBase
 
     protected override string TargetShaderName => "Shadertoy/XsdBDS_ToonyFire";
     protected override string QuadObjectName => "ST_XsdBDS_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-8/shadertoy-8-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-08/shadertoy-8-capture.resolution.json";
 
 #if UNITY_EDITOR
     protected override void OnEnable()
@@ -22,8 +22,8 @@ public class ShadertoyXsdBDS_v8Bootstrap : ShadertoyBootstrapBase
 
     private void OnValidate()
     {
-        if (channel0Texture == null && "Assets/unity-shadertoy-validation/shadertoy-8/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png" != "")
-            channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-8/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png");
+        if (channel0Texture == null && "Assets/unity-shadertoy-validation/shadertoy-08/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png" != "")
+            channel0Texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/unity-shadertoy-validation/shadertoy-08/Textures/f735bee5b64ef98879dc618b016ecf7939a5756040c2cde21ccb15e69a6e1cfb.png");
     }
 #endif
 

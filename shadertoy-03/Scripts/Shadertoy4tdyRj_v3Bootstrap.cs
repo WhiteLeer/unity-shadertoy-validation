@@ -8,7 +8,7 @@ public class Shadertoy4tdyRj_v3Bootstrap : ShadertoyBootstrapBase
 {
     protected override string TargetShaderName => "Shadertoy/4tdyRj_ProceduralPlant";
     protected override string QuadObjectName => "ST_4tdyRj_Quad";
-    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-3/shadertoy-3-capture.resolution.json";
+    protected override string DefaultResolutionJsonRelativePath => "unity-shadertoy-validation/shadertoy-03/shadertoy-3-capture.resolution.json";
 
 #if UNITY_EDITOR
     private void OnValidate() { }
